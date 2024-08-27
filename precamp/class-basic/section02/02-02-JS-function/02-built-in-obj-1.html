@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>내장 객체 실습</title>
+    <script>
+      // 1. 수학 객체
+      const 수학객체 = {
+        max: function () {
+          // 수학객체.max가 이름
+          console.log("최댓값을 구합니다");
+        },
+        random: function () {
+          console.log("난수 생성");
+          return Math.random();
+        },
+        round: function (반올림할값) {
+          console.log("반올림 대상 : " + 반올림할값);
+        },
+      };
+
+      수학객체.max();
+      수학객체.round(1.5);
+
+      const 내가만든랜덤숫자 = 수학객체.random();
+      console.log(Math.round(1.435));
+      console.log(내가만든랜덤숫자);
+
+      // 2. 날짜 객체
+    </script>
+  </head>
+  <body></body>
+</html>
