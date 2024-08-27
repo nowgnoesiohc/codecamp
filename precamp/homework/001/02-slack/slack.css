@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  height: 80px;
+  padding: 16px 80px 16px 80px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.left-header {
+  width: 376px;
+  padding: 8px 0px 8px 0px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.left-header img {
+  width: 32px;
+  height: 32px;
+}
+.search-bar {
+  width: 920px;
+  height: 48px;
+  padding: 8px 16px 8px 16px;
+  gap: 8px;
+  border-radius: 8px;
+  background-color: #955c98;
+  display: flex;
+  align-items: center;
+}
+.search-bar img {
+  width: 24px;
+  height: 24px;
+}
+.search-box {
+  width: 920px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #efe6ef;
+}
+.root {
+  width: 1920px;
+  height: 1208px;
+  background-color: #491449;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  width: 1760px;
+  height: 1048px;
+  border-radius: 8px 0px 0px 0px;
+
+  display: flex;
+  justify-content: space-between;
+
+  background: #d5bce4;
+}
+.side-menu {
+  background: #713574;
+  width: 400px;
+  height: 1048px;
+  border-radius: 8px 0px 0px 0px;
+}
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-title div {
+  color: #491449;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+.register-form {
+  gap: 20px;
+  padding: 0px 56px 0px 56px;
+
+  gap: 20px;
+  opacity: 0px;
+}
+.register-input-form {
+  height: 660px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.input {
+  width: 448px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input div {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+}
+.input input {
+  width: 320px;
+  height: 44px;
+  padding: 8px 12px 8px 12px;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px;
+}
+.auth {
+  width: 448;
+  display: flex;
+  justify-content: flex-end;
+}
+.main-img {
+  width: 680px;
+  height: 1048px;
+  box-shadow: 0px 0px 40px 0px #d389ff;
+}

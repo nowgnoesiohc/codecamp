@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Slack</title>
+    <link rel="stylesheet" href="./slack.css" />
+  </head>
+  <body>
+    <main class="root">
+      <div class="header">
+        <div class="left-header">
+          <img src="./img/arrow_left.png" />
+          <img src="./img/arrow_right.png" />
+          <img src="./img/time.png" />
+        </div>
+        <div class="center-right-header">
+          <div class="search-bar">
+            <img src="./img/search.png" />
+            <input
+              class="search-box"
+              type="text"
+              placeholder="수강생을 검색해 보세요."
+            />
+          </div>
+          <div class="right-header">
+            <button>
+              <img class="icon" src="./img/logo_codecamp.png" />
+              수강생
+            </button>
+            <img src="./img/help.png" />
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="side-bar">
+          <div class="top-side-bar"></div>
+          <div class="bottom-side-bar"></div>
+        </div>
+        <div class="background">
+          <div class="content">
+            <div class="side-menu">
+              <div class="channel-name"></div>
+              <button></button>
+              <hr />
+              <div class="channel-info">
+                <div class="gen-info"></div>
+                <div class="member-list"></div>
+                <div class="block-list"></div>
+              </div>
+            </div>
+            <div class="register">
+              <div class="register-form">
+                <div class="register-title">
+                  <div>코드캠프에 가입하고</div>
+                  <div>개발자로 커리어 점프 하세요.</div>
+                </div>
+
+                <div class="register-input-form">
+                  <div class="input">
+                    <div>이름</div>
+                    <input type="text" />
+                  </div>
+
+                  <div class="input">
+                    <div>이메일</div>
+                    <input type="text" />
+                  </div>
+
+                  <div class="input">
+                    <div>비밀번호</div>
+                    <input type="password" />
+                  </div>
+
+                  <div class="input">
+                    <div>전화번호</div>
+                    <input type="text" />
+                  </div>
+
+                  <div class="auth">
+                    <div>0000000</div>
+                    <button>인증번호 요청</button>
+                  </div>
+
+                  <div class="input">
+                    <div>자기소개</div>
+                    <input class="intro" type="text" />
+                  </div>
+
+                  <div class="gender-radio">
+                    <input type="radio" name="gender" id="woman" /><label
+                      for="woman"
+                      >여성</label
+                    >
+                    <input type="radio" name="gender" id="man" /><label
+                      for="man"
+                      >남성</label
+                    >
+                  </div>
+
+                  <div class="okay-box">
+                    <input type="checkbox" id="not-okay" /><label for="not-okay"
+                      >집에는 씻으러만 가는데 동의합니다.</label
+                    >
+                  </div>
+                </div>
+                <button class="register-button">가입하기</button>
+              </div>
+            </div>
+            <img class="main-img" src="./img/mainimg.png" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

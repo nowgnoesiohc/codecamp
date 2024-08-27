@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>플렉스박스 실습</title>
+    <style>
+        .우리동네{
+            /* div는 block 요소이기 때문에, width 조정안하면 전체, height는 자식포함하는 영역만*/
+            width: 500px;
+            height: 500px;
+            background-color: rgb(182, 255, 255);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .철수네집{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(206, 153, 255);
+        }
+        .영희네집{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(74, 74, 182);
+        }
+    </style>
+</head>
+<body>
+    <div class="우리동네">
+        <div class="철수네집">철수네집</div>
+        <div class="영희네집">영희네집</div>
+    </div>
+</body>
+</html>
