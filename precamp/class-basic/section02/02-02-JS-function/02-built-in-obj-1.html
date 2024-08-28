@@ -26,6 +26,17 @@
       console.log(내가만든랜덤숫자);
 
       // 2. 날짜 객체
+      const 나의날짜 = new Date();
+      console.log(나의날짜.getFullYear());
+      console.log(나의날짜.getMonth() + 1);
+      console.log(나의날짜.getDate());
+      const 오늘날짜 =
+        나의날짜.getFullYear() +
+        "-" +
+        (나의날짜.getMonth() + 1) +
+        "-" +
+        나의날짜.getDate();
+      console.log(오늘날짜);
     </script>
   </head>
   <body></body>

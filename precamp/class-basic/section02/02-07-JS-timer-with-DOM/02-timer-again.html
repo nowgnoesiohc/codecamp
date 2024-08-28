@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Timer</title>
+    <script>
+      function verificationRequest() {
+        const verificationCode = String(
+          Math.floor(Math.random() * 1000000)
+        ).padStart(6, 0);
+        document.getElementById("code").innerText = verificationCode;
+
+        let t = 180 - 1;
+        setInterval(function () {
+          const m = String(Math.floor(t / 60)).padStart(2, 0);
+          const s = String(t % 60).padStart(2, 0);
+          t -= 1;
+          document.getElementById("time").innerText = `${m}:${s}`;
+        }, 1000);
+        // 누르면 disabled로
+        document.getElementById("button").disabled = true;
+        document.getElementById("button").style = "color: red";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="code">000000</div>
+    <button id="button" onclick="verificationRequest()">Request</button>
+    <div id="time">03:00</div>
+  </body>
+</html>

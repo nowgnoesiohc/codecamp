@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>내장 객체 실습</title>
+    <script>
+      function 인증번호요청() {
+        const 랜덤수 = Math.random();
+        // console.log(랜덤수);
+        const 여섯자리수 = Math.floor(랜덤수 * 1000000);
+        // console.log(여섯자리수);
+        const 인증번호 = String(여섯자리수).padStart(6, 0); //(유지할 자릿수, 채워줄 수)
+        console.log(인증번호);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="인증번호요청()">인증번호 요청</button>
+  </body>
+</html>

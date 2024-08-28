@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Document</title>
+    <script>
+      function 가입() {
+        const 가입자명 = document.getElementById("이름입력창").value;
+        // document.getElementById("가입자명단").innerText = 가입자명;
+        document.getElementById(
+          "가입자명단"
+        ).innerHTML = `<div onclick="회원정보(${가입자명})">${가입자명}</div>`;
+      }
+      function 가입자명(가입자명받는곳) {
+        alert(`가입자명은 ${가입자명받는곳}입니다.`);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="가입자명단"></div>
+    이름을 입력하세요: <input type="text" id="이름입력창" />
+    <button onclick="가입()">회원가입</button>
+  </body>
+</html>

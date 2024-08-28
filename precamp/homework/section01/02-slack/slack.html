@@ -22,9 +22,9 @@
             />
           </div>
           <div class="right-header">
-            <button>
+            <button class="right-header-button">
               <img class="icon" src="./img/logo_codecamp.png" />
-              수강생
+              <div>수강생</div>
             </button>
             <img src="./img/help.png" />
           </div>
@@ -32,14 +32,29 @@
       </div>
       <div class="main">
         <div class="side-bar">
-          <div class="top-side-bar"></div>
-          <div class="bottom-side-bar"></div>
+          <div class="top-side-bar">
+            <div class="channel-image"></div>
+            <div class="nav-menu">
+              <div class="nav-home"></div>
+              <div class="nav-dm"></div>
+              <div class="nav-notification"></div>
+              <div class="nav-bookmark"></div>
+              <div class="nav-more"></div>
+            </div>
+          </div>
+          <div class="bottom-side-bar">
+            <img class="bottom-side-bar-img" src="./img/add_profile.png" />
+            <img class="bottom-side-bar-img" src="./img/내 프로필_A.png" />
+          </div>
         </div>
         <div class="background">
           <div class="content">
             <div class="side-menu">
               <div class="channel-name"></div>
-              <button></button>
+              <button>
+                <img />
+                서약서 자세히 보기
+              </button>
               <hr />
               <div class="channel-info">
                 <div class="gen-info"></div>
@@ -57,52 +72,80 @@
                 <div class="register-input-form">
                   <div class="input">
                     <div>이름</div>
-                    <input type="text" />
+                    <input type="text" placeholder="이름을 입력해 주세요." />
                   </div>
 
                   <div class="input">
                     <div>이메일</div>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      placeholder="네이버, 구글, 한메일, 카카오 계정만 입력"
+                    />
                   </div>
 
                   <div class="input">
                     <div>비밀번호</div>
-                    <input type="password" />
+                    <input
+                      type="password"
+                      placeholder="비밀번호를 입력해 주세요."
+                    />
                   </div>
 
                   <div class="input">
                     <div>전화번호</div>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      placeholder="010으로 시작, '-'를 꼭입력해 주세요."
+                    />
                   </div>
 
                   <div class="auth">
-                    <div>0000000</div>
-                    <button>인증번호 요청</button>
+                    <div class="auth-request">
+                      <div>0000000</div>
+                      <button class="auth-button">인증번호 요청</button>
+                    </div>
+                    <button class="auth-button">인증하기</button>
                   </div>
 
-                  <div class="input">
+                  <div class="input" id="input-intro">
                     <div>자기소개</div>
-                    <input class="intro" type="text" />
+                    <input
+                      class="intro"
+                      type="text"
+                      placeholder="자기소개를 입력해 주세요."
+                    />
                   </div>
 
-                  <div class="gender-radio">
-                    <input type="radio" name="gender" id="woman" /><label
-                      for="woman"
-                      >여성</label
-                    >
-                    <input type="radio" name="gender" id="man" /><label
-                      for="man"
-                      >남성</label
-                    >
+                  <div class="gender">
+                    <div>성별</div>
+                    <div class="gender-radio">
+                      <div>
+                        <input
+                          class="check"
+                          type="radio"
+                          name="gender"
+                          id="man"
+                        /><label for="man">남성</label>
+                      </div>
+                      <div>
+                        <input
+                          class="check"
+                          type="radio"
+                          name="gender"
+                          id="woman"
+                        /><label for="woman">여성</label>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="okay-box">
-                    <input type="checkbox" id="not-okay" /><label for="not-okay"
+                    <input class="check" type="checkbox" id="not-okay" /><label
+                      for="not-okay"
                       >집에는 씻으러만 가는데 동의합니다.</label
                     >
                   </div>
+                  <button class="register-button">가입</button>
                 </div>
-                <button class="register-button">가입하기</button>
               </div>
             </div>
             <img class="main-img" src="./img/mainimg.png" />
