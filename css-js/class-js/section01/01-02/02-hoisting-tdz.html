@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>호이스팅과 TDZ 실습</title>
+    <script>
+      // 1. 호이스팅과 TDZ
+      // console.log(const1); // 할당되기 전에 부르면 에러
+      // const const1 = "철수";
+
+      // console.log(let1);
+      // let let1 = '영희';
+
+      // 2. 함수 덮어쓰기 문제
+      function function1() {
+        console.log("function1 execution");
+      }
+      function function1() {
+        console.log("function1 overwrite");
+      }
+      function1(); // 덮어씌워져버리는 문제
+
+      // 3. 함수를 만드는 세가지 방법
+      // 3-1. 함수 선언식
+      function declaration() {}
+      // 3-2. 함수 표현식
+      const expression = function () {};
+      // 3-3. arrow function
+      const arrowFunction = () => {};
+
+      // 4. 덮어쓰기 확인
+      const expression = function () {};
+    </script>
+  </head>
+  <body></body>
+</html>

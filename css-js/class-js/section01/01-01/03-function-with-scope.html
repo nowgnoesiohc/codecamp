@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>함수와 스코프 실습</title>
+    <script>
+      function 더하기기능() {
+        // 기본함수
+        const a = 1;
+        const b = 2;
+        const 결과 = a + b;
+        console.log(결과);
+      }
+      더하기기능(); // 기본함수 실행하기
+
+      // 함수 만들기 => 매개변수 받기
+      function 더하기(a, b) {
+        const 결과 = a + b;
+        console.log(결과);
+      }
+      더하기(1, 2);
+
+      // 스코프 적용
+      function outer() {
+        const a = 10;
+        console.log(a);
+        function inner() {
+          // const a = 50;
+          console.log(a);
+        }
+        inner();
+        console.log(a);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

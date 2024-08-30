@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>플랙스박스 wrap 실습</title>
+    <style>
+      .CSS_부모1 {
+        background-color: bisque;
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        gap: 10px;
+      }
+      .CSS_알맹이1 {
+        width: 100px;
+        height: 100px;
+        background-color: burlywood;
+      }
+      .CSS_부모2 {
+        background-color: honeydew;
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .CSS_알맹이2 {
+        width: 100px;
+        height: 100px;
+        background-color: seagreen;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 찌그러지는 상황 -->
+    <div class="CSS_부모1">
+      <div class="CSS_알맹이1"></div>
+      <div class="CSS_알맹이1"></div>
+      <div class="CSS_알맹이1"></div>
+      <div class="CSS_알맹이1"></div>
+      <div class="CSS_알맹이1"></div>
+      <div class="CSS_알맹이1"></div>
+    </div>
+    <!-- 아래로 내려주는 상황 -->
+    <div class="CSS_부모2">
+      <div class="CSS_알맹이2"></div>
+      <div class="CSS_알맹이2"></div>
+      <div class="CSS_알맹이2"></div>
+      <div class="CSS_알맹이2"></div>
+      <div class="CSS_알맹이2"></div>
+      <div class="CSS_알맹이2"></div>
+    </div>
+  </body>
+</html>

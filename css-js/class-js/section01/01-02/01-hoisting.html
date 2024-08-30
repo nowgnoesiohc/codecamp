@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>호이스팅 실습</title>
+    <script>
+      // 1. 밑에서 만든 위에서 실행하기 : 호이스팅
+      function1();
+      function function1() {
+        console.log("function1 execution");
+      }
+
+      // 2. 밑에서 만든 변수 위에서 실행하기 : 호이스팅
+      console.log(var1); // undefined (변수는 있는데 값은 안들어가 있음)
+      var var1 = "철수";
+      console.log(var1); // 할당이 되고 나서 실행하기
+    </script>
+  </head>
+  <body></body>
+</html>
