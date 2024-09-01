@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>로컬스토리지와 세션스토리지 실습</title>
+    <script>
+      // 1. 변수에 저장하기 (새로고침하면 지워짐, 껐다켜면 지워짐)
+      let 사과바구니 = 0;
+      const 사과담기 = (a) => {
+        if (a === 1) 사과바구니 = 1;
+        if (a === 2) 사과바구니 = 2;
+        if (a === 3) 사과바구니 = 3;
+      };
+      const 사과꺼내기 = () => {
+        alert(`사과바구니에는 사과가 ${사과바구니}개 들어있어요`);
+      };
+
+      // 2. 세션스토리지에 저장하기 (새로고침하면 남아있음, 껐다켜면 지워짐)
+      let 귤바구니 = 0;
+      const 귤담기 = (a) => {
+        if (a === 1) sessionStorage.setItem("귤바구니", 1);
+        if (a === 2) sessionStorage.setItem("귤바구니", 2);
+        if (a === 3) sessionStorage.setItem("귤바구니", 3);
+      };
+      const 귤꺼내기 = () => {
+        const 귤바구니 = sessionStorage.getItem("귤바구니");
+        alert(`귤바구니에는 귤이 ${귤바구니}개 들어있어요`);
+      };
+
+      // 3. 로컬스토리지에 저장하기 (새로고침하면 남아있음, 껐다켜도 남아있음 -> 개발자도구나 코드로 지울 수 있다)
+      let 배바구니 = 0;
+      const 배담기 = (a) => {
+        if (a === 1) localStorage.setItem("배바구니", 1);
+        if (a === 2) localStorage.setItem("배바구니", 2);
+        if (a === 3) localStorage.setItem("배바구니", 3);
+      };
+      const 배꺼내기 = () => {
+        const 배바구니 = localStorage.getItem("배바구니");
+        alert(`배바구니에는 배가 ${배바구니}개 들어있어요`);
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="사과담기(1)">사과 1개 담기</button>
+    <button onclick="사과담기(2)">사과 2개 담기</button>
+    <button onclick="사과담기(3)">사과 3개 담기</button>
+    <button onclick="사과꺼내기()">사과 개수 불러오기</button>
+    <br />
+    <button onclick="귤담기(1)">귤 1개 담기</button>
+    <button onclick="귤담기(2)">귤 2개 담기</button>
+    <button onclick="귤담기(3)">귤 3개 담기</button>
+    <button onclick="귤꺼내기()">귤 개수 불러오기</button>
+    <br />
+    <button onclick="배담기(1)">배 1개 담기</button>
+    <button onclick="배담기(2)">배 2개 담기</button>
+    <button onclick="배담기(3)">배 3개 담기</button>
+    <button onclick="배꺼내기()">배 개수 불러오기</button>
+  </body>
+</html>

@@ -1,35 +1,32 @@
-let diary = [
-  {
-    title: "제목입니다",
-    content: "내용입니다",
-    emotion: "sad",
-    date: "2024. 08. 29",
-  },
-];
+let diary = [];
 let title, content;
 let emotion = "";
 
-// window.onload = () => {
-//   renderDiary();
-// };
+window.onload = () => {
+  renderDiary();
+};
 
 const inputStatus = () => {
   // 감정 상태를 저장할 변수 초기화
   emotion = "";
 
   // 각 감정의 라디오 버튼이 체크되었는지 확인
-  if (document.getElementById("happy").checked) {
-    emotion = "happy";
-  } else if (document.getElementById("sad").checked) {
-    emotion = "sad";
-  } else if (document.getElementById("surprised").checked) {
-    emotion = "surprised";
-  } else if (document.getElementById("angry").checked) {
-    emotion = "angry";
-  } else if (document.getElementById("etc").checked) {
-    emotion = "etc";
-  }
-
+  document.getElementsByName("emotion").forEach((el) => {
+    if (el.checked) {
+      emotion = el.id;
+    }
+  });
+  // if (document.getElementById("happy").checked) {
+  //   emotion = "happy";
+  // } else if (document.getElementById("sad").checked) {
+  //   emotion = "sad";
+  // } else if (document.getElementById("surprised").checked) {
+  //   emotion = "surprised";
+  // } else if (document.getElementById("angry").checked) {
+  //   emotion = "angry";
+  // } else if (document.getElementById("etc").checked) {
+  //   emotion = "etc";
+  // }
   console.log(emotion);
 
   // 제목과 내용을 가져옴
@@ -76,9 +73,23 @@ const addDiary = () => {
 
 // 일기들 렌더링
 const renderDiary = () => {
-  let divString = "";
-  for (let i = 0; i < diary.length; i++) {
-    const emo = diary[i].emotion;
+  let divString = `<div class="list-content" onclick="infoAlert(0)">
+                    <img class="content-img" src="./assets/sad.png" />
+                    <div class="content-text-area">
+                      <div class="content-text-row">
+                        <div class="text-status" style="color: #28b4e1">
+                          슬퍼요
+                        </div>
+                        <div class="text-date">2024. 03. 12</div>
+                      </div>
+                      <div class="text-title">
+                        타이틀 영역입니다. 한 줄까지만 노출됩니다.
+                      </div>
+                    </div>
+                  </div>`;
+  // NOTE : 여기서부터 고치기
+  diary.forEach((el) => {
+    const emo = el.emotion;
     let text = "";
     let textColor = "";
     if (emo === "happy") {
@@ -97,6 +108,8 @@ const renderDiary = () => {
       textColor = "#A229ED";
       text = "기타";
     }
+    // 감정 한글화
+    el.emotion = text;
 
     divString += `<div class="list-content" onclick="infoAlert(${i})">
                     <img class="content-img" src="./assets/${emo}.png" />
@@ -108,11 +121,51 @@ const renderDiary = () => {
                         <div class="text-date">${diary[i].date}</div>
                       </div>
                       <div class="text-title">
-                        ${diary[i].title}
+                        ${el.title}
                       </div>
                     </div>
                   </div>`;
-  }
+  });
+
+  // for (let i = 0; i < diary.length; i++) {
+  //   const emo = diary[i].emotion;
+  //   let text = "";
+  //   let textColor = "";
+  //   if (emo === "happy") {
+  //     textColor = "#EA5757";
+  //     text = "행복해요";
+  //   } else if (emo === "sad") {
+  //     textColor = "#28b4e1";
+  //     text = "슬퍼요";
+  //   } else if (emo === "surprised") {
+  //     textColor = "#D59029";
+  //     text = "놀랐어요";
+  //   } else if (emo === "angry") {
+  //     textColor = "#777777";
+  //     text = "화나요";
+  //   } else if (emo === "etc") {
+  //     textColor = "#A229ED";
+  //     text = "기타";
+  //   }
+  //   // 감정 한글화
+  //   diary[i].emotion = text;
+
+  //   divString += `<div class="list-content" onclick="infoAlert(${i})">
+  //                   <img class="content-img" src="./assets/${emo}.png" />
+  //                   <div class="content-text-area">
+  //                     <div class="content-text-row">
+  //                       <div class="text-status" style="color: ${textColor}">
+  //                         ${text}
+  //                       </div>
+  //                       <div class="text-date">${diary[i].date}</div>
+  //                     </div>
+  //                     <div class="text-title">
+  //                       ${diary[i].title}
+  //                     </div>
+  //                   </div>
+  //                 </div>`;
+  // }
+  console.log(divString);
   document.getElementById("list-content-area").innerHTML = divString;
 };
 
