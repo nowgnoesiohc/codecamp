@@ -137,3 +137,19 @@ const infoAlert = (index) => {
     내용 : ${diary[index].content}
     `);
 };
+
+const filterEmotion = (event) => {
+  const selected = event.target.value;
+  let emotion_list = [
+    { emotion: "happy" },
+    { emotion: "sad" },
+    { emotion: "surprised" },
+    { emotion: "angry" },
+    { emotion: "etc" },
+  ];
+  switch (selected) {
+    case "happy": {
+      emotion_list = 
+    }
+  }
+};

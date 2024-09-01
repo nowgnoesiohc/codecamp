@@ -16,7 +16,16 @@
               <div class="menu">일기보관함</div>
               <div class="menu">일기보관함</div>
             </div>
-            <div class="filter-area"></div>
+            <div class="filter-area">
+              <select onchange="필터링(event)">
+                <option>전체</option>
+                <option value="happy">행복해요</option>
+                <option value="sad">슬퍼요</option>
+                <option value="surprised">놀랐어요</option>
+                <option value="angry">화나요</option>
+                <option value="etc">기타</option>
+              </select>
+            </div>
             <div class="content-area">
               <div class="left-area">
                 <div id="list-content-area">
