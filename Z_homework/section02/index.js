@@ -27,7 +27,7 @@ const inputStatus = () => {
   // } else if (document.getElementById("etc").checked) {
   //   emotion = "etc";
   // }
-  console.log(emotion);
+  // console.log(emotion);
 
   // 제목과 내용을 가져옴
   // 공백만 입력한 경우 버튼을 활성화 시키지 않음
@@ -56,8 +56,28 @@ const addDiary = () => {
   )}. ${String(today.getDate()).padStart(2, 0)}`;
   a_diary.date = date;
 
+  let text = "";
+  let textColor = "";
+  if (emotion === "happy") {
+    textColor = "#EA5757";
+    text = "행복해요";
+  } else if (emotion === "sad") {
+    textColor = "#28b4e1";
+    text = "슬퍼요";
+  } else if (emotion === "surprised") {
+    textColor = "#D59029";
+    text = "놀랐어요";
+  } else if (emotion === "angry") {
+    textColor = "#777777";
+    text = "화나요";
+  } else if (emotion === "etc") {
+    textColor = "#A229ED";
+    text = "기타";
+  }
+  a_diary.text = text;
+  a_diary.textColor = textColor;
+
   diary.push(a_diary);
-  console.log(diary);
 
   // 입력창 초기화
   // document.getElementById("happy").checked = false;
@@ -87,38 +107,16 @@ const renderDiary = () => {
                       </div>
                     </div>
                   </div>`;
-  // NOTE : 여기서부터 고치기
-  diary.forEach((el) => {
-    const emo = el.emotion;
-    let text = "";
-    let textColor = "";
-    if (emo === "happy") {
-      textColor = "#EA5757";
-      text = "행복해요";
-    } else if (emo === "sad") {
-      textColor = "#28b4e1";
-      text = "슬퍼요";
-    } else if (emo === "surprised") {
-      textColor = "#D59029";
-      text = "놀랐어요";
-    } else if (emo === "angry") {
-      textColor = "#777777";
-      text = "화나요";
-    } else if (emo === "etc") {
-      textColor = "#A229ED";
-      text = "기타";
-    }
-    // 감정 한글화
-    el.emotion = text;
-
-    divString += `<div class="list-content" onclick="infoAlert(${i})">
-                    <img class="content-img" src="./assets/${emo}.png" />
+  diary.forEach((el, index) => {
+    console.log(el.emotion);
+    divString += `<div class="list-content" onclick="infoAlert(${index})">
+                    <img class="content-img" src="./assets/${el.emotion}.png" />
                     <div class="content-text-area">
                       <div class="content-text-row">
-                        <div class="text-status" style="color: ${textColor}">
-                          ${text}
+                        <div class="text-status" style="color: ${el.textColor}">
+                          ${el.text}
                         </div>
-                        <div class="text-date">${diary[i].date}</div>
+                        <div class="text-date">${el.date}</div>
                       </div>
                       <div class="text-title">
                         ${el.title}
@@ -127,44 +125,6 @@ const renderDiary = () => {
                   </div>`;
   });
 
-  // for (let i = 0; i < diary.length; i++) {
-  //   const emo = diary[i].emotion;
-  //   let text = "";
-  //   let textColor = "";
-  //   if (emo === "happy") {
-  //     textColor = "#EA5757";
-  //     text = "행복해요";
-  //   } else if (emo === "sad") {
-  //     textColor = "#28b4e1";
-  //     text = "슬퍼요";
-  //   } else if (emo === "surprised") {
-  //     textColor = "#D59029";
-  //     text = "놀랐어요";
-  //   } else if (emo === "angry") {
-  //     textColor = "#777777";
-  //     text = "화나요";
-  //   } else if (emo === "etc") {
-  //     textColor = "#A229ED";
-  //     text = "기타";
-  //   }
-  //   // 감정 한글화
-  //   diary[i].emotion = text;
-
-  //   divString += `<div class="list-content" onclick="infoAlert(${i})">
-  //                   <img class="content-img" src="./assets/${emo}.png" />
-  //                   <div class="content-text-area">
-  //                     <div class="content-text-row">
-  //                       <div class="text-status" style="color: ${textColor}">
-  //                         ${text}
-  //                       </div>
-  //                       <div class="text-date">${diary[i].date}</div>
-  //                     </div>
-  //                     <div class="text-title">
-  //                       ${diary[i].title}
-  //                     </div>
-  //                   </div>
-  //                 </div>`;
-  // }
   console.log(divString);
   document.getElementById("list-content-area").innerHTML = divString;
 };
@@ -173,7 +133,7 @@ const infoAlert = (index) => {
   alert(`
     ${diary[index].date} 일기
     제목 : ${diary[index].title}
-    기분 : ${diary[index].emotion}
+    기분 : ${diary[index].text}
     내용 : ${diary[index].content}
     `);
 };

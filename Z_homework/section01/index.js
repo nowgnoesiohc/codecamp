@@ -87,9 +87,9 @@ const renderDiary = () => {
                       </div>
                     </div>
                   </div>`;
-  // NOTE : 여기서부터 고치기
-  diary.forEach((el) => {
-    const emo = el.emotion;
+
+  for (let i = 0; i < diary.length; i++) {
+    const emo = diary[i].emotion;
     let text = "";
     let textColor = "";
     if (emo === "happy") {
@@ -109,7 +109,7 @@ const renderDiary = () => {
       text = "기타";
     }
     // 감정 한글화
-    el.emotion = text;
+    diary[i].emotion = text;
 
     divString += `<div class="list-content" onclick="infoAlert(${i})">
                     <img class="content-img" src="./assets/${emo}.png" />
@@ -121,50 +121,11 @@ const renderDiary = () => {
                         <div class="text-date">${diary[i].date}</div>
                       </div>
                       <div class="text-title">
-                        ${el.title}
+                        ${diary[i].title}
                       </div>
                     </div>
                   </div>`;
-  });
-
-  // for (let i = 0; i < diary.length; i++) {
-  //   const emo = diary[i].emotion;
-  //   let text = "";
-  //   let textColor = "";
-  //   if (emo === "happy") {
-  //     textColor = "#EA5757";
-  //     text = "행복해요";
-  //   } else if (emo === "sad") {
-  //     textColor = "#28b4e1";
-  //     text = "슬퍼요";
-  //   } else if (emo === "surprised") {
-  //     textColor = "#D59029";
-  //     text = "놀랐어요";
-  //   } else if (emo === "angry") {
-  //     textColor = "#777777";
-  //     text = "화나요";
-  //   } else if (emo === "etc") {
-  //     textColor = "#A229ED";
-  //     text = "기타";
-  //   }
-  //   // 감정 한글화
-  //   diary[i].emotion = text;
-
-  //   divString += `<div class="list-content" onclick="infoAlert(${i})">
-  //                   <img class="content-img" src="./assets/${emo}.png" />
-  //                   <div class="content-text-area">
-  //                     <div class="content-text-row">
-  //                       <div class="text-status" style="color: ${textColor}">
-  //                         ${text}
-  //                       </div>
-  //                       <div class="text-date">${diary[i].date}</div>
-  //                     </div>
-  //                     <div class="text-title">
-  //                       ${diary[i].title}
-  //                     </div>
-  //                   </div>
-  //                 </div>`;
-  // }
+  }
   console.log(divString);
   document.getElementById("list-content-area").innerHTML = divString;
 };
