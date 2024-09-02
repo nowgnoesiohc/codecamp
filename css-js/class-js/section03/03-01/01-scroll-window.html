@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>윈도우 스크롤 실습</title>
+    <script>
+      const JS_스크롤 = () => {
+        // window.scrollTop({ top: 0 });
+
+        // 지금 위치에서 500만큼만 올리기
+        // window.scrollBy({ top: -500 });
+
+        //
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    </script>
+  </head>
+  <body>
+    <img src="./일러스트 이미지 마스크.png" width="100%" />
+    <button onclick="JS_스크롤()">HTML 스크롤 올리기</button>
+  </body>
+</html>

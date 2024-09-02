@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Document</title>
+    <style>
+      .CSS_이미지사진 {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      const JS_확대하기기능 = () => {
+        document.getElementById("HTML_이미지사진").style =
+          "width: 100vw; height: 100vh;"; //viewport width : 보이는 화면의 100%
+      };
+      const JS_좋아요기능 = () => {
+        event.stopPropagation(); // 좋아요 버튼 눌렀을때는 확대하기기능 끄기 (부모 태그로 클릭이벤트 전파 막기)
+        // event.preventDefault(); // a태그처럼 기본 기능들을 금지 (여기서는 넣어도 작동안함)
+        alert("좋아요가 +1 올라갔습니다");
+      };
+    </script>
+  </head>
+  <body>
+    <div
+      id="HTML_이미지사진"
+      class="CSS_이미지사진"
+      onclick="JS_확대하기기능()"
+    >
+      <button onclick="JS_좋아요기능()">좋아요</button>
+    </div>
+    <p>사진을 클릭하면 전체화면으로 볼 수 있습니다.</p>
+  </body>
+</html>

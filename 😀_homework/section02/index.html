@@ -17,7 +17,7 @@
               <div class="menu">일기보관함</div>
             </div>
             <div class="filter-area">
-              <select onchange="필터링(event)">
+              <select onchange="filterEmotion(event)">
                 <option>전체</option>
                 <option value="happy">행복해요</option>
                 <option value="sad">슬퍼요</option>
@@ -30,20 +30,6 @@
               <div class="left-area">
                 <div id="list-content-area">
                   <!-- NOTE : 개별 카드 -->
-                  <!-- <div class="list-content">
-                    <img class="content-img" src="./assets/sad.png" />
-                    <div class="content-text-area">
-                      <div class="content-text-row">
-                        <div class="text-status" style="color: #28b4e1">
-                          슬퍼요
-                        </div>
-                        <div class="text-date">2024. 03. 12</div>
-                      </div>
-                      <div class="text-title">
-                        타이틀 영역입니다. 한 줄까지만 노출됩니다.
-                      </div>
-                    </div>
-                  </div> -->
                 </div>
               </div>
               <div class="right-area">
@@ -101,15 +87,17 @@
                         id="input-box-title"
                         type="text"
                         oninput="inputStatus()"
+                        placeholder="제목을 입력해 주세요"
                       />
                     </div>
                     <div class="input-text-area">
                       <div>내용</div>
-                      <input
+                      <textarea
                         id="input-box-content"
                         type="text"
                         oninput="inputStatus()"
-                      />
+                        placeholder="내용을 입력해 주세요"
+                      ></textarea>
                     </div>
                   </div>
                   <button

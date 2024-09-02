@@ -1,9 +1,11 @@
-let diary = [];
+let diary = JSON.parse(localStorage.getItem("diary")) ?? [];
+// let diary = [];
 let title, content;
 let emotion = "";
+let idx = diary.length - 1;
 
 window.onload = () => {
-  renderDiary();
+  renderDiary(diary);
 };
 
 const inputStatus = () => {
@@ -16,21 +18,8 @@ const inputStatus = () => {
       emotion = el.id;
     }
   });
-  // if (document.getElementById("happy").checked) {
-  //   emotion = "happy";
-  // } else if (document.getElementById("sad").checked) {
-  //   emotion = "sad";
-  // } else if (document.getElementById("surprised").checked) {
-  //   emotion = "surprised";
-  // } else if (document.getElementById("angry").checked) {
-  //   emotion = "angry";
-  // } else if (document.getElementById("etc").checked) {
-  //   emotion = "etc";
-  // }
-  // console.log(emotion);
 
-  // 제목과 내용을 가져옴
-  // 공백만 입력한 경우 버튼을 활성화 시키지 않음
+  // 제목과 내용을 가져옴, 공백만 입력한 경우 버튼을 활성화 시키지 않음
   title = document.getElementById("input-box-title").value.trim();
   content = document.getElementById("input-box-content").value.trim();
 
@@ -44,10 +33,13 @@ const inputStatus = () => {
 
 // 배열에 객체로 일기 push
 const addDiary = () => {
+  idx++;
+
   const a_diary = new Object();
   a_diary.title = title;
   a_diary.content = content;
   a_diary.emotion = emotion;
+  a_diary.idx = idx;
 
   const today = new Date();
   const date = `${today.getFullYear()}. ${String(today.getMonth() + 1).padStart(
@@ -74,10 +66,13 @@ const addDiary = () => {
     textColor = "#A229ED";
     text = "기타";
   }
+
+  console.log(a_diary);
   a_diary.text = text;
   a_diary.textColor = textColor;
 
   diary.push(a_diary);
+  localStorage.setItem("diary", JSON.stringify(diary));
 
   // 입력창 초기화
   // document.getElementById("happy").checked = false;
@@ -88,44 +83,35 @@ const addDiary = () => {
   // document.getElementById("input-box-title").value = "";
   // document.getElementById("input-box-content").value = "";
 
-  renderDiary();
+  renderDiary(diary);
 };
 
 // 일기들 렌더링
-const renderDiary = () => {
-  let divString = `<div class="list-content" onclick="infoAlert(0)">
-                    <img class="content-img" src="./assets/sad.png" />
-                    <div class="content-text-area">
-                      <div class="content-text-row">
-                        <div class="text-status" style="color: #28b4e1">
-                          슬퍼요
-                        </div>
-                        <div class="text-date">2024. 03. 12</div>
-                      </div>
-                      <div class="text-title">
-                        타이틀 영역입니다. 한 줄까지만 노출됩니다.
-                      </div>
-                    </div>
-                  </div>`;
-  diary.forEach((el, index) => {
-    console.log(el.emotion);
-    divString += `<div class="list-content" onclick="infoAlert(${index})">
-                    <img class="content-img" src="./assets/${el.emotion}.png" />
-                    <div class="content-text-area">
-                      <div class="content-text-row">
-                        <div class="text-status" style="color: ${el.textColor}">
-                          ${el.text}
-                        </div>
-                        <div class="text-date">${el.date}</div>
-                      </div>
-                      <div class="text-title">
-                        ${el.title}
-                      </div>
-                    </div>
-                  </div>`;
-  });
+const renderDiary = (diary) => {
+  console.log(diary);
 
-  console.log(divString);
+  const divString = diary
+    .map(
+      (el) =>
+        ` <a href="./detail.html?index=${el.idx}">
+            <div class="list-content" onclick="infoAlert(${el.idx})">
+              <img class="content-img" src="./assets/${el.emotion}.png" />
+              <div class="content-text-area">
+                <div class="content-text-row">
+                  <div class="text-status" style="color: ${el.textColor}">
+                    ${el.text}
+                  </div>
+                  <div class="text-date">${el.date}</div>
+                </div>
+                <div class="text-title">
+                  ${el.title}
+                </div>
+              </div>
+            </div>
+          </a>`
+    )
+    .join("");
+  console.log("divString" + divString);
   document.getElementById("list-content-area").innerHTML = divString;
 };
 
@@ -140,16 +126,33 @@ const infoAlert = (index) => {
 
 const filterEmotion = (event) => {
   const selected = event.target.value;
-  let emotion_list = [
-    { emotion: "happy" },
-    { emotion: "sad" },
-    { emotion: "surprised" },
-    { emotion: "angry" },
-    { emotion: "etc" },
-  ];
-  // switch (selected) {
-  //   case "happy": {
-  //     emotion_list = 
-  //   }
-  // }
+  let filtered_list;
+  switch (selected) {
+    case "happy": {
+      filtered_list = diary.filter((el) => el.emotion === "happy");
+      break;
+    }
+    case "sad": {
+      filtered_list = diary.filter((el) => el.emotion === "sad");
+      break;
+    }
+    case "surprised": {
+      filtered_list = diary.filter((el) => el.emotion === "surprised");
+      break;
+    }
+    case "angry": {
+      filtered_list = diary.filter((el) => el.emotion === "angry");
+      break;
+    }
+    case "etc": {
+      filtered_list = diary.filter((el) => el.emotion === "etc");
+      break;
+    }
+    default: {
+      filtered_list = diary;
+    }
+  }
+  // console.log(filtered_list);
+  renderDiary(filtered_list);
+  console.log(filtered_list);
 };
