@@ -147,9 +147,9 @@ const filterEmotion = (event) => {
     { emotion: "angry" },
     { emotion: "etc" },
   ];
-  switch (selected) {
-    case "happy": {
-      emotion_list = 
-    }
-  }
+  // switch (selected) {
+  //   case "happy": {
+  //     emotion_list = 
+  //   }
+  // }
 };
