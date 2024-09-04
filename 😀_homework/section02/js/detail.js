@@ -16,5 +16,5 @@ window.onload = () => {
 };
 
 const openEditpage = () => {
-  window.location.href = `./edit.html?number=${a_diary.idx}`;
+  window.location.href = `./edit.html?index=${a_diary.idx}`;
 };

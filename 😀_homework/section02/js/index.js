@@ -67,7 +67,7 @@ const addDiary = () => {
     text = "기타";
   }
 
-  console.log(a_diary);
+  // console.log(a_diary);
   a_diary.text = text;
   a_diary.textColor = textColor;
 
@@ -88,7 +88,7 @@ const addDiary = () => {
 
 // 일기들 렌더링
 const renderDiary = (diary) => {
-  console.log(diary);
+  // console.log(diary);
 
   const divString = diary
     .map(
@@ -111,7 +111,7 @@ const renderDiary = (diary) => {
           </a>`
     )
     .join("");
-  console.log("divString" + divString);
+  // console.log("divString" + divString);
   document.getElementById("list-content-area").innerHTML = divString;
 };
 
@@ -154,5 +154,5 @@ const filterEmotion = (event) => {
   }
   // console.log(filtered_list);
   renderDiary(filtered_list);
-  console.log(filtered_list);
+  // console.log(filtered_list);
 };
