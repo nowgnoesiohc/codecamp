@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>폼 실습</title>
+    <script>
+      const JS_글등록기능 = () => {
+        alert("게시글 등록이 완료되었습니다");
+      };
+    </script>
+  </head>
+  <body>
+    <!-- 키 이벤트, onclick 안걸어도 자동으로 버튼/엔터 시 입력완료처리  -->
+    <form onsubmit="JS_글등록기능()">
+      제목: <input type="text" /><br />
+      내용: <input type="text" /><br />
+      <button>등록하기</button>
+    </form>
+
+    <button type="submit"></button>
+    <!-- submit 됨, default -->
+    <button type="button"></button>
+    <!-- submit 안됨 -->
+    <button type="reset"></button>
+    <!-- form 내 인풋창 모두 비우기 -->
+  </body>
+</html>
