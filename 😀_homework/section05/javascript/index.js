@@ -27,7 +27,7 @@ window.addEventListener("scroll", () => {
 
   if (보이는화면길이 >= 화면위에서푸터위까지길이) {
     document.getElementById("HTML_플로팅버튼").style = `
-      position: absolute;
+      position: fixed;
       bottom: 11rem;
       right: 1rem;
   `;
@@ -158,7 +158,6 @@ const JS_글쓰기기능 = () => {
   일기목록.push(일기담는통);
   window.localStorage.setItem("민지의일기목록", JSON.stringify(일기목록));
 
-  openModal('confirm-modal-group');
   JS_일기그리기기능();
 };
 
@@ -286,6 +285,7 @@ const JS_필터링기능 = (event) => {
 function JS_스크롤위로기능() {
   window.scrollTo({
     top: 0,
+    behavior: "smooth",
   });
 }
 
@@ -308,8 +308,12 @@ function JS_일기삭제기능(event, 일기번호) {
 }
 const openModal = (modal) => {
   document.getElementById(modal).style = "display: block;";
-  document.getElementsByClassName("modal-background") = "display: block"
+  JS_스크롤위로기능();
+  if (modal === "reg-modal-group")
+    document.getElementById("no-scroll").style = "display: none";
 };
 const closeModal = (modal) => {
   document.getElementById(modal).style = "display: none;";
+  if (modal === "reg-modal-group")
+    document.getElementById("body no-scroll").style = "position: static";
 };

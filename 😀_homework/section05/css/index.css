@@ -220,9 +220,13 @@ a {
 }
 #reg-modal-group {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
+}
+#reg-modal-group::-webkit-scrollbar {
+  display: none;
 }
 .modal-background {
   width: 100vw;
@@ -236,6 +240,7 @@ a {
 
   top: calc(50% - 560px / 2);
   left: calc(50% - 640px / 2);
+
   border-radius: 24px;
   background-color: white;
 }
@@ -318,6 +323,7 @@ a {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
+  resize: none;
 }
 
 #HTML_제목입력창::placeholder,
@@ -416,16 +422,18 @@ a {
 }
 #confirm-modal-group {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 3;
 }
 
 #cancel-modal-group {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 3;
 }
 .nested-modal {
   position: absolute;
@@ -468,23 +476,30 @@ a {
 }
 @media (max-width: 48.7rem) {
   .CSS_라디오그룹 {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-items: start;
+    justify-items: start; */
+
+    flex-direction: column;
+    align-items: flex-start;
   }
   .CSS_메인 {
     display: contents;
   }
-  .CSS_등록상자 {
-    width: 100%;
+
+  .reg-modal {
+    max-width: 80%;
     order: 1;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
+    top: calc(50% - 560px / 2);
+    left: calc(50% - 640px / 2);
   }
   .CSS_필터_영역_배경 {
     order: 2;
   }
 
   .CSS_일기보여주는곳 {
+    grid-template-columns: 1fr 1fr;
     width: 100%;
     order: 3;
   }

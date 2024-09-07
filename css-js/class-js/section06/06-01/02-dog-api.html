@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>강아지API 실습</title>
+    <script>
+      const JS_문장불러오기기능 = () => {
+        return fetch("https://dog.ceo/api/breeds/image/random")
+          .then((res) => {
+            console.log("🚀 ~ res:", res);
+            return res.json();
+          })
+          .then((res) => {
+            console.log("🚀 ~ returnfetch ~ res:", res);
+            alert(res.status);
+            const img = res.message;
+            document.getElementById("HTML_강아지보여주는곳").innerHTML = `
+              <img src="${res.message}" ./>
+            `;
+          });
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="JS_문장불러오기기능()">사진 가져오기</button>
+    <div id="HTML_강아지보여주는곳"></div>
+  </body>
+</html>
