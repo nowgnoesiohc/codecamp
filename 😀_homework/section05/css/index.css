@@ -18,7 +18,7 @@ a {
 
 .CSS_레이아웃 {
   margin: 0 1.25rem 2.5rem;
-  max-width: 73rem;
+  width: 73rem;
 }
 .content-area {
   display: flex;
@@ -225,9 +225,7 @@ a {
   left: 0;
   z-index: 2;
 }
-#reg-modal-group::-webkit-scrollbar {
-  display: none;
-}
+
 .modal-background {
   width: 100vw;
   height: 100vh;

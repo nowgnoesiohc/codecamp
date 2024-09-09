@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>검색 실습</title>
+    <script>
+      const 친구목록 = ["철수", "영희", "철희", "철민", "민희"];
+
+      let 타이머;
+
+      // 검색 기능 실행
+      const JS_검색기능 = (event) => {
+        타이머 = setTimeout(() => {
+          clearTimeout(타이머);
+          const 내가검색한단어 = event.target.value;
+          const 검색결과들 = 친구목록.filter((el) =>
+            el.includes(내가검색한단어)
+          );
+
+          document.getElementById("HTML_검색결과보여주는곳").innerHTML =
+            검색결과들.join(", ");
+        }, 1000);
+      };
+    </script>
+  </head>
+  <body>
+    <input
+      type="text"
+      placeholder="친구를 검색하세요."
+      oninput="JS_검색기능(event)"
+    />
+    <div id="HTML_검색결과보여주는곳"></div>
+  </body>
+</html>

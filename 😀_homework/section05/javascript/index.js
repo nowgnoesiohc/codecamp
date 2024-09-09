@@ -309,11 +309,9 @@ function JS_일기삭제기능(event, 일기번호) {
 const openModal = (modal) => {
   document.getElementById(modal).style = "display: block;";
   JS_스크롤위로기능();
-  if (modal === "reg-modal-group")
-    document.getElementById("no-scroll").style = "display: none";
+  if (modal === "reg-modal-group") document.body.style = "overflow: hidden;";
 };
 const closeModal = (modal) => {
   document.getElementById(modal).style = "display: none;";
-  if (modal === "reg-modal-group")
-    document.getElementById("body no-scroll").style = "position: static";
+  if (modal === "reg-modal-group") document.body.style = "overflow: auto";
 };
