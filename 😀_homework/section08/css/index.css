@@ -483,6 +483,52 @@ a {
   }
 }
 
+/* 페이지네이션 */
+.CSS_pagination_group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+#HTML_pagination_move_prev_button,
+#HTML_pagination_move_next_button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: black;
+}
+#HTML_pagination_move_prev_button:disabled,
+#HTML_pagination_move_next_button:disabled {
+  color: #c7c7c7;
+}
+
+.CSS_pagination {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.CSS_pagination_button {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #777777;
+  background-color: white;
+  border: none;
+}
+.CSS_pagination_button_clicked {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  background-color: #f2f2f2;
+  border: none;
+}
 /* 푸터 영역 */
 .CSS_푸터_영역 {
   width: 100%;

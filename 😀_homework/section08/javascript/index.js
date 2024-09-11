@@ -1,3 +1,8 @@
+// 1. 스토리지에 저장된 일기목록 가져오기
+let 스토리지에저장된일기목록 =
+  window.localStorage.getItem("민지의일기목록") ?? "[]";
+let 일기목록 = JSON.parse(스토리지에저장된일기목록);
+
 window.onload = () => {
   console.log("민지의 다이어리에 오신 것을 환영합니다.");
 
@@ -15,6 +20,8 @@ window.onload = () => {
       console.error("HTML_메인 요소가 존재하지 않습니다.");
     }
   });
+  JS_render_page();
+  JS_render_content(일기목록, 1);
 };
 
 window.addEventListener("scroll", () => {
@@ -81,12 +88,7 @@ const 스크롤하면실행될녀석 = () => {
   }
 };
 
-const JS_일기그리기기능 = () => {
-  // 1. 스토리지에 저장된 일기목록 가져오기
-  const 스토리지에저장된일기목록 =
-    window.localStorage.getItem("민지의일기목록") ?? "[]";
-  const 일기목록 = JSON.parse(스토리지에저장된일기목록);
-
+const JS_일기그리기기능 = (일기목록) => {
   // 2. 일기목록 화면에 새롭게 전체 그리기
   const HTML_새로운일기도화지 = 일기목록
     .map(
@@ -189,15 +191,12 @@ const JS_글쓰기기능 = () => {
     작성일: 날짜담는통,
   };
 
-  const 스토리지에저장된일기목록 =
-    window.localStorage.getItem("민지의일기목록") ?? "[]";
-  const 일기목록 = JSON.parse(스토리지에저장된일기목록);
-
   일기목록.push(일기담는통);
-
   window.localStorage.setItem("민지의일기목록", JSON.stringify(일기목록));
 
-  JS_일기그리기기능();
+  스토리지에저장된일기목록 = localStorage.getItem("민지의일기목록") ?? "[]";
+  일기목록 = JSON.parse(스토리지에저장된일기목록);
+  JS_일기그리기기능(일기목록);
 };
 
 const JS_글보기기능 = (일기번호받는통) => {
@@ -252,77 +251,7 @@ const JS_기분드롭다운선택기능 = (event) => {
       break;
     }
   }
-  const HTML_새로운일기도화지 = 필터링된일기목록
-    .map(
-      (el, index) => `
-        <a href="./detail.html?number=${index}">
-          <div class="CSS_일기">
-            <div class="CSS_일기사진">
-              ${
-                el.기분 === "행복"
-                  ? '<img class="CSS_기분이미지" src="./assets/images/joy.png" alt="행복" />'
-                  : ""
-              }
-              ${
-                el.기분 === "슬픔"
-                  ? '<img class="CSS_기분이미지" src="./assets/images/sadness.png" alt="슬픔" />'
-                  : ""
-              }
-              ${
-                el.기분 === "놀람"
-                  ? '<img class="CSS_기분이미지" src="./assets/images/surprised.png" alt="놀람" />'
-                  : ""
-              }
-              ${
-                el.기분 === "화남"
-                  ? '<img class="CSS_기분이미지" src="./assets/images/anger.png" alt="화남" />'
-                  : ""
-              }
-              ${
-                el.기분 === "기타"
-                  ? '<img class="CSS_기분이미지" src="./assets/images/idontknownothing.png" alt="기타" />'
-                  : ""
-              }
-            </div>
-            <div class="CSS_일기정보">
-              <div class="CSS_일기내용">
-                ${
-                  el.기분 === "행복"
-                    ? `<div class="CSS_기분 CSS_행복">행복해요</div>`
-                    : ""
-                }
-                ${
-                  el.기분 === "슬픔"
-                    ? `<div class="CSS_기분 CSS_슬픔">슬퍼요</div>`
-                    : ""
-                }
-                ${
-                  el.기분 === "놀람"
-                    ? `<div class="CSS_기분 CSS_놀람">놀랐어요</div>`
-                    : ""
-                }
-                ${
-                  el.기분 === "화남"
-                    ? `<div class="CSS_기분 CSS_화남">화나요</div>`
-                    : ""
-                }
-                ${
-                  el.기분 === "기타"
-                    ? `<div class="CSS_기분 CSS_기타">기타</div>`
-                    : ""
-                }
-                <div class="CSS_날짜">${el.작성일}</div>
-              </div>
-              <div class="CSS_일기제목"> ${el.제목}</div>
-            </div>
-            <img class="CSS_삭제버튼" src="./assets/images/deleteButton.png" onclick="JS_일기삭제기능(event, ${index})" />
-          </div>
-        </a>
-      `
-    )
-    .join("");
-  window.document.getElementById("HTML_일기보여주는곳").innerHTML =
-    HTML_새로운일기도화지;
+  JS_일기그리기기능(필터링된일기목록);
 };
 
 const JS_스크롤위로기능 = () => {
@@ -344,10 +273,6 @@ const JS_일기삭제기능 = (event, 일기번호) => {
 };
 
 const JS_일기삭제확인기능 = () => {
-  const 스토리지에저장된일기목록 =
-    window.localStorage.getItem("민지의일기목록") ?? "[]";
-  const 일기목록 = JSON.parse(스토리지에저장된일기목록);
-
   if (현재삭제할일기번호 !== null) {
     // 1. 클릭된 일기번호 삭제하기
 
@@ -363,7 +288,10 @@ const JS_일기삭제확인기능 = () => {
     );
 
     // 3. 삭제된 일기목록 화면에 다시 그리기
-    JS_일기그리기기능();
+
+    스토리지에저장된일기목록 = localStorage.getItem("민지의일기목록") ?? "[]";
+    일기목록 = JSON.parse(스토리지에저장된일기목록);
+    JS_일기그리기기능(일기목록);
 
     // 4. 모달 닫기
     JS_모달닫기기능("HTML_일기삭제모달그룹");
@@ -388,7 +316,13 @@ const JS_메뉴이동 = (메뉴) => {
         "border-bottom: 0.2rem solid #000;";
       window.document.getElementById("HTML_사진보관함탭").style =
         "color: #ababab;";
-      JS_일기그리기기능();
+
+      document.getElementById(
+        "HTML_기분드롭다운제목"
+      ).style.cssText = `--드롭다운CSS변수: "전체"`;
+      document.getElementById("HTML_사진드롭다운제목").click();
+
+      JS_일기그리기기능(일기목록);
       break;
     }
     case "사진": {
@@ -514,76 +448,75 @@ const JS_검색기능 = (event) => {
     const 검색결과들 = 일기목록.filter((el) =>
       el.제목.includes(내가검색한단어)
     );
-    const HTML_새로운일기도화지 = 검색결과들
-      .map(
-        (el, index) => `
-          <a href="./detail.html?number=${index}">
-            <div class="CSS_일기">
-              <div class="CSS_일기사진">
-                ${
-                  el.기분 === "행복"
-                    ? '<img class="CSS_기분이미지" src="./assets/images/joy.png" alt="행복" />'
-                    : ""
-                }
-                ${
-                  el.기분 === "슬픔"
-                    ? '<img class="CSS_기분이미지" src="./assets/images/sadness.png" alt="슬픔" />'
-                    : ""
-                }
-                ${
-                  el.기분 === "놀람"
-                    ? '<img class="CSS_기분이미지" src="./assets/images/surprised.png" alt="놀람" />'
-                    : ""
-                }
-                ${
-                  el.기분 === "화남"
-                    ? '<img class="CSS_기분이미지" src="./assets/images/anger.png" alt="화남" />'
-                    : ""
-                }
-                ${
-                  el.기분 === "기타"
-                    ? '<img class="CSS_기분이미지" src="./assets/images/idontknownothing.png" alt="기타" />'
-                    : ""
-                }
-              </div>
-              <div class="CSS_일기정보">
-                <div class="CSS_일기내용">
-                  ${
-                    el.기분 === "행복"
-                      ? `<div class="CSS_기분 CSS_행복">행복해요</div>`
-                      : ""
-                  }
-                  ${
-                    el.기분 === "슬픔"
-                      ? `<div class="CSS_기분 CSS_슬픔">슬퍼요</div>`
-                      : ""
-                  }
-                  ${
-                    el.기분 === "놀람"
-                      ? `<div class="CSS_기분 CSS_놀람">놀랐어요</div>`
-                      : ""
-                  }
-                  ${
-                    el.기분 === "화남"
-                      ? `<div class="CSS_기분 CSS_화남">화나요</div>`
-                      : ""
-                  }
-                  ${
-                    el.기분 === "기타"
-                      ? `<div class="CSS_기분 CSS_기타">기타</div>`
-                      : ""
-                  }
-                  <div class="CSS_날짜">${el.작성일}</div>
-                </div>
-                <div class="CSS_일기제목"> ${el.제목}</div>
-              </div>
-              <img class="CSS_삭제버튼" src="./assets/images/deleteButton.png" onclick="JS_일기삭제기능(event, ${index})" />
-            </div>
-          </a>
-        `
-      )
-      .join("");
-    window.document.getElementById("HTML_일기보여주는곳").innerHTML =
-      HTML_새로운일기도화지;
+    JS_일기그리기기능(검색결과들);
   }, 1000);
+};
+
+const NUM_OF_PAGE = 12;
+let std_page = 1;
+let clicked_page = 1;
+let last_page = Math.ceil(일기목록.length / NUM_OF_PAGE);
+const JS_render_page = () => {
+  스토리지에저장된일기목록 = localStorage.getItem("민지의일기목록") ?? "[]";
+  일기목록 = JSON.parse(스토리지에저장된일기목록);
+  const pages = new Array(5).fill(null);
+  const pages_html = pages
+    .map((el, index) => {
+      const page_num = index + std_page;
+
+      // console.log(page_num);
+      return page_num <= last_page
+        ? `
+      <button class=${
+        clicked_page === page_num
+          ? "CSS_pagination_button_clicked"
+          : "CSS_pagination_button"
+      }
+      onclick="clicked_page=${page_num}; JS_render_content(${일기목록}, ${page_num}); JS_render_page()">
+      ${page_num}
+      </button>
+      `
+        : "";
+    })
+    .join("");
+
+  document.getElementById("HTML_pagination").innerHTML = pages_html;
+
+  if (std_page === 1)
+    document.getElementById("HTML_pagination_move_prev_button").disabled = true;
+  else
+    document.getElementById(
+      "HTML_pagination_move_prev_button"
+    ).disabled = false;
+  if (std_page + 5 > last_page)
+    document.getElementById("HTML_pagination_move_next_button").disabled = true;
+  else
+    document.getElementById(
+      "HTML_pagination_move_next_button"
+    ).disabled = false;
+};
+const JS_move_prev = () => {
+  std_page -= 5;
+  clicked_page = std_page;
+  JS_render_page();
+  JS_render_page(clicked_page);
+};
+const JS_move_next = () => {
+  std_page += 5;
+  clicked_page = std_page;
+  JS_render_page();
+  JS_render_page(clicked_page);
+};
+
+const JS_render_content = (diary_list, page_num) => {
+  console.log(diary_list);
+  const filtered_list = diary_list.filter((el, index) => {
+    const show = NUM_OF_PAGE;
+    const jump = (page_num - 1) * show;
+
+    if (jump < index && index <= jump + show) return true;
+    else false;
+  });
+
+  JS_일기그리기기능(filtered_list);
 };

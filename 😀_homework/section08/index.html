@@ -52,7 +52,7 @@
               <input
                 type="radio"
                 id="전체"
-                name="HTML_전체선택"
+                name="HTML_기분선택"
                 value="전체"
                 checked
                 onclick="JS_기분드롭다운선택기능(event)"
@@ -64,7 +64,7 @@
               <input
                 type="radio"
                 id="행복"
-                name="HTML_행복선택"
+                name="HTML_기분선택"
                 value="행복해요"
                 onclick="JS_기분드롭다운선택기능(event)"
               />
@@ -76,7 +76,7 @@
               <input
                 type="radio"
                 id="슬픔"
-                name="HTML_슬픔선택"
+                name="HTML_기분선택"
                 value="슬퍼요"
                 onclick="JS_기분드롭다운선택기능(event)"
               /><label for="슬픔"
@@ -87,7 +87,7 @@
               <input
                 type="radio"
                 id="놀람"
-                name="HTML_놀람선택"
+                name="HTML_기분선택"
                 value="놀랐어요"
                 onclick="JS_기분드롭다운선택기능(event)"
               /><label for="놀람"
@@ -98,7 +98,7 @@
               <input
                 type="radio"
                 id="화남"
-                name="HTML_화남선택"
+                name="HTML_기분선택"
                 value="화나요"
                 onclick="JS_기분드롭다운선택기능(event)"
               /><label for="화남"
@@ -109,7 +109,7 @@
               <input
                 type="radio"
                 id="기타"
-                name="HTML_기타선택"
+                name="HTML_기분선택"
                 value="기타"
                 onclick="JS_기분드롭다운선택기능(event)"
               /><label for="기타"
@@ -343,6 +343,16 @@
           </div>
         </div>
 
+        <!-- 페이지네이션 -->
+        <div class="CSS_pagination_group">
+          <button id="HTML_pagination_move_prev_button" onclick="JS_move_prev">
+            <
+          </button>
+          <div id="HTML_pagination" class="CSS_pagination"></div>
+          <button id="HTML_pagination_move_next_button" onclick="JS_move_prev">
+            >
+          </button>
+        </div>
         <!-- 등록취소모달 -->
         <div id="HTML_등록취소모달그룹" class="CSS_공통모달그룹">
           <div class="CSS_공통모달배경"></div>
