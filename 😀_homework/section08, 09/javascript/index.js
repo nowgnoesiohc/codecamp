@@ -20,8 +20,9 @@ window.onload = () => {
       console.error("HTML_메인 요소가 존재하지 않습니다.");
     }
   });
-  JS_render_page(일기목록);
-  JS_render_content(일기목록, 1);
+  diary_list = 일기목록;
+  JS_render_page();
+  JS_render_content(1);
 };
 
 window.addEventListener("scroll", () => {
@@ -252,8 +253,10 @@ const JS_기분드롭다운선택기능 = (event) => {
     }
   }
   JS_일기그리기기능(필터링된일기목록);
-  JS_render_page(필터링된일기목록);
-  JS_render_content(필터링된일기목록, 1);
+  diary_list = 필터링된일기목록;
+  clicked_page = 1;
+  JS_render_page();
+  JS_render_content(1);
 };
 
 const JS_스크롤위로기능 = () => {
@@ -450,17 +453,24 @@ const JS_검색기능 = (event) => {
     const 검색결과들 = 일기목록.filter((el) =>
       el.제목.includes(내가검색한단어)
     );
+
     JS_일기그리기기능(검색결과들);
+    clicked_page = 1;
+    diary_list = 검색결과들;
+    JS_render_page();
+    JS_render_content(1);
   }, 1000);
 };
 
 const NUM_OF_PAGE = 12;
 let std_page = 1;
 let clicked_page = 1;
+let diary_name;
 let diary_list;
-let last_page = Math.ceil(diary_list.length / NUM_OF_PAGE);
+let last_page;
 
 const JS_render_page = () => {
+  last_page = Math.ceil(diary_list.length / NUM_OF_PAGE);
   const pages = new Array(5).fill(null);
 
   const pages_html = pages
