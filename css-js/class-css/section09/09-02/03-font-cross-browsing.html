@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>폰트 크로스브라우징 실습</title>
+    <style>
+      @font-face {
+        font-family: 영희의폰트;
+        src: url("./00-myfont03-cross-browsing.ttf");
+      }
+      @media not all and (min-resolution: 0.001dpcm) {
+        div {
+          color: blue;
+        }
+      }
+
+      .CSS_네모박스 {
+        font-family: 영희의폰트;
+      }
+    </style>
+  </head>
+  <body>
+    <div>안녕하세요</div>
+    <div>안녕하세요</div>
+
+    <br /><br />
+
+    <div class="CSS_네모박스">안녕하세요</div>
+  </body>
+</html>

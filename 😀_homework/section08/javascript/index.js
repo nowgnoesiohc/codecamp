@@ -20,7 +20,7 @@ window.onload = () => {
       console.error("HTML_메인 요소가 존재하지 않습니다.");
     }
   });
-  JS_render_page();
+  JS_render_page(일기목록);
   JS_render_content(일기목록, 1);
 };
 
@@ -252,6 +252,8 @@ const JS_기분드롭다운선택기능 = (event) => {
     }
   }
   JS_일기그리기기능(필터링된일기목록);
+  JS_render_page(필터링된일기목록);
+  JS_render_content(필터링된일기목록, 1);
 };
 
 const JS_스크롤위로기능 = () => {
@@ -455,11 +457,12 @@ const JS_검색기능 = (event) => {
 const NUM_OF_PAGE = 12;
 let std_page = 1;
 let clicked_page = 1;
-let last_page = Math.ceil(일기목록.length / NUM_OF_PAGE);
+let diary_list;
+let last_page = Math.ceil(diary_list.length / NUM_OF_PAGE);
+
 const JS_render_page = () => {
-  스토리지에저장된일기목록 = localStorage.getItem("민지의일기목록") ?? "[]";
-  일기목록 = JSON.parse(스토리지에저장된일기목록);
   const pages = new Array(5).fill(null);
+
   const pages_html = pages
     .map((el, index) => {
       const page_num = index + std_page;
@@ -472,7 +475,7 @@ const JS_render_page = () => {
           ? "CSS_pagination_button_clicked"
           : "CSS_pagination_button"
       }
-      onclick="clicked_page=${page_num}; JS_render_content(${일기목록}, ${page_num}); JS_render_page()">
+      onclick="clicked_page=${page_num}; JS_render_content(${page_num}); JS_render_page()">
       ${page_num}
       </button>
       `
@@ -494,6 +497,8 @@ const JS_render_page = () => {
     document.getElementById(
       "HTML_pagination_move_next_button"
     ).disabled = false;
+
+  console.log(pages_html);
 };
 const JS_move_prev = () => {
   std_page -= 5;
@@ -508,8 +513,7 @@ const JS_move_next = () => {
   JS_render_page(clicked_page);
 };
 
-const JS_render_content = (diary_list, page_num) => {
-  console.log(diary_list);
+const JS_render_content = (page_num) => {
   const filtered_list = diary_list.filter((el, index) => {
     const show = NUM_OF_PAGE;
     const jump = (page_num - 1) * show;
