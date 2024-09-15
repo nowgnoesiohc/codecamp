@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>리액트 실습</title>
+
+    <!-- 리액트 다운로드 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- 바벨 다운로드 -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+
+    <script type="text/babel" src="./03-button.js"></script>
+    <script type="text/babel" src="./03-input.js"></script>
+
+    <!-- 최신 문법 쓰면 알아서 예전 문법으로 바꿔줌 -->
+    <!-- JSX로 입력하면, 진짜 HTML로 바꿔줌 -->
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      /* 1. 변수는 중괄호에다가 쓰면 알아서 바벨이 진짜 HTML로 바꿔줌 */
+      /* 2. 함수는 태그에다가 쓰면 알아서 바벨이 진짜 HTML로 바꿔줌 */
+      root.render(
+        <div>
+          {철수의버튼}
+          <br />
+          {영희의인풋()}
+          <영희의인풋 />
+        </div>
+      );
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
