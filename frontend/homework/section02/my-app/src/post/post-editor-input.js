@@ -1,8 +1,8 @@
-const EditorHeader = (props) => {
+export const EditorHeader = (props) => {
   return <div className="editor-header">{props.title}</div>;
 };
 
-const InputForm = (props) => {
+export const InputForm = (props) => {
   const InputFormTitle = () => {
     return (
       <div className="input-form-title">
@@ -19,27 +19,38 @@ const InputForm = (props) => {
             className="input-text"
             type="text"
             placeholder={props.placeholder}
+            onChange={props.실행할함수}
           />
         );
       case "textarea":
         return <textarea className="input-textarea"></textarea>;
       case "photo":
-        return <div></div>;
+        return (
+          <div className="photo-area">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        );
     }
   };
 
   return (
-    <div>
+    <div className="content-area">
       <InputFormTitle />
       <InputFormContent />
     </div>
   );
 };
 
-const EditButton = (props) => {
+export const EditButton = (props) => {
   return props.reg ? (
     <button className="normal-button">{props.value}</button>
   ) : (
     <button className="edit-button">{props.value}</button>
   );
+};
+
+export const Divider = (props) => {
+  return <hr className="divider" />;
 };
