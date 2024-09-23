@@ -15,11 +15,16 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin: 40px 0px;
+}
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 .editor-header {
   font-size: 20px;
   font-weight: 700;
-  margin-top: 40px;
 }
 .input-form {
   display: flex;
