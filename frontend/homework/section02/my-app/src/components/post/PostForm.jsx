@@ -1,26 +1,29 @@
 import React from "react";
-import InputForm from "./InputForm";
+import InputFormText from "./InputFormText";
+
 import Button from "./Button";
 
 const PostForm = () => {
-  <>
-    <div className="input-area">
-      <div className="id-pw-area">
-        <InputForm title="author" />
-        <InputForm title="password" />
+  return (
+    <>
+      <div className="input-area">
+        <div className="id-pw-area">
+          <InputFormText title={"author"} />
+          <InputFormText title={"password"} />
+        </div>
+        <InputFormText title={"title"} />
+
+        <InputFormText title={"content"} />
+        {/* <InputForm title="address" />
+
+      <InputForm title="youtube" /> */}
       </div>
-      <InputForm title="title" />
-
-      <InputForm title="content" />
-      <InputForm title="address" />
-
-      <InputForm title="youtube" />
-    </div>
-    <div className="button-area">
+      {/* <div className="button-area">
       <Button reg={true} value="취소" />
       <Button value="등록하기" />
-    </div>
-  </>;
+    </div> */}
+    </>
+  );
 };
 
 export default PostForm;

@@ -20,7 +20,7 @@ export const InputForm = (props) => {
             className="input-text"
             type="text"
             placeholder={props.placeholder}
-            onChange={props.onChange}
+            onChange={props.onChange()}
             value={props.author}
           />
         );

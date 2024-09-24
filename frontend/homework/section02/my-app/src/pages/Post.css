@@ -19,6 +19,7 @@
 }
 .input-area {
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 40px;
 }
@@ -32,13 +33,14 @@
   gap: 40px;
 }
 .id-pw-area {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  display: flex;
   gap: 40px;
 }
 .content-area {
   display: flex;
   flex-direction: column;
+  flex: 1 1;
   gap: 8px;
 }
 .input-form-title {
