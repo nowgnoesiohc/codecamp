@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>달력 클릭 영역 실습</title>
+    <!-- 
+~ 여기 핵심 ~
+1. 속성을 가지고 와서 적용할 수 있다 (data-*)
+2. 겹치기를 이용해서 indicator을 투명하게 만들어서 감쌈으로써 어디를 클릭해도되게 할 수 있었다. 
+-->
+    <style>
+      .CSS_나의날짜 {
+        position: relative;
+      }
+      .CSS_나의날짜::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent;
+        width: 100%;
+
+        /* 클릭되게 하기 위해 위로 올려줌 */
+        z-index: 1;
+      }
+      .CSS_나의날짜::-webkit-datetime-edit-text,
+      ::-webkit-datetime-edit-year-field,
+      ::-webkit-datetime-edit-month-field,
+      ::-webkit-datetime-edit-day-field {
+        display: none;
+      }
+      .CSS_나의날짜:valid::-webkit-datetime-edit-text,
+      :valid:-webkit-datetime-edit-year-field,
+      :valid::-webkit-datetime-edit-month-field,
+      :valid::-webkit-datetime-edit-day-field {
+        display: inline;
+        color: blue;
+      }
+      .CSS_나의날짜::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: attr(
+          철수의생일
+        ); /* 실무에서는 data-어쩌고 형태로 많이 쓴다. */
+      }
+      .CSS_나의날짜:valid::after {
+        display: none;
+      }
+      .CSS_나의날짜:invalid::after {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      type="date"
+      class="CSS_나의날짜"
+      철수의생일="생일을 선택하세요."
+      required
+    />
+  </body>
+</html>

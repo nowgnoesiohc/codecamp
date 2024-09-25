@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>디바이스 높이 감지 실습</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      .CSS_footer {
+        height: 100px;
+        background-color: lightgray;
+      }
+      .CSS_floatingButton {
+        position: fixed;
+        bottom: 10px;
+        left: 90%;
+      }
+    </style>
+    <script>
+      window.addEventListener("scroll", () => {
+        const scrollHeight = window.scrollY;
+        console.log(scrollHeight);
+
+        if (scrollHeight >= 164) {
+          document.getElementById("HTML_floatingButton").style = `
+            position: relative;
+            bottom: 40px;
+            left: 90%;
+        `;
+        } else {
+          document.getElementById("HTML_floatingButton").style = `
+            position: fixed;
+            bottom: 10px;
+            left: 90%;
+        `;
+        }
+
+        // 하지만 디바이스 크기가 달라지면 작동하지 않으므로 디바이스 크기를 동적으로 감지할 필요가 있다.
+      });
+    </script>
+  </head>
+  <body>
+    <img src="../00-dog.jpg" width="100%" />
+    <button class="CSS_floatingButton" id="HTML_floatingButton">^</button>
+    <div class="CSS_footer">푸터</div>
+  </body>
+</html>

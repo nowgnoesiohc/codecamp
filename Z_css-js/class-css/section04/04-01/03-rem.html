@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>rem 실습</title>
+    <style>
+      html {
+        /* default */
+        font-size: 16px;
+        /* 계산 쉽게 하려면 기본 폰트 사이즈를 10px로 하면 된다 */
+      }
+      .CSS_box {
+        width: 9.375rem; /*150px*/
+        height: 9.375rem; /*150px*/
+        background-color: skyblue;
+        margin: 20px;
+      }
+      @media (max-width: 767px) {
+        html {
+          font-size: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_box"></div>
+    <div class="CSS_box"></div>
+    <div class="CSS_box"></div>
+  </body>
+</html>

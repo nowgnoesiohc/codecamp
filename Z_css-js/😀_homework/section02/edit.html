@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>일기 상세 페이지</title>
+    <link rel="stylesheet" href="./css/edit.css" />
+    <script src="./js/edit.js"></script>
+  </head>
+  <body>
+    <div class="real-entire">
+      <div class="entire">
+        <div class="title-frame">민지의 다이어리</div>
+        <div class="main-frame">
+          <div class="content-area">
+            <div class="emotion-question">오늘 기분은 어땠나요?</div>
+            <div class="emotion-radio">
+              <div class="a-radio">
+                <input
+                  id="happy"
+                  name="emotion"
+                  type="radio"
+                  oninput="inputStatus()"
+                /><label for="happy">행복해요</label>
+              </div>
+              <div class="a-radio">
+                <input
+                  id="sad"
+                  name="emotion"
+                  type="radio"
+                  oninput="inputStatus()"
+                /><label for="sad">슬퍼요</label>
+              </div>
+              <div class="a-radio">
+                <input
+                  id="surprised"
+                  name="emotion"
+                  type="radio"
+                  oninput="inputStatus()"
+                /><label for="surprised">놀랐어요</label>
+              </div>
+              <div class="a-radio">
+                <input
+                  id="angry"
+                  name="emotion"
+                  type="radio"
+                  oninput="inputStatus()"
+                /><label for="angry">화나요</label>
+              </div>
+              <div class="a-radio">
+                <input
+                  id="etc"
+                  name="emotion"
+                  type="radio"
+                  oninput="inputStatus()"
+                /><label for="etc">기타</label>
+              </div>
+            </div>
+          </div>
+          <div class="content-area">
+            <div class="content-title">제목</div>
+            <input id="title-textbox" class="title-textbox" type="text" />
+          </div>
+          <div class="content-area">
+            <div class="content-title">내용</div>
+            <input id="content-textbox" class="content-textbox" type="text" />
+          </div>
+          <div class="button-area">
+            <button class="cancle-button">취소</button>
+            <button id="edit-button" class="edit-button" onclick="finishEdit()">
+              수정하기
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

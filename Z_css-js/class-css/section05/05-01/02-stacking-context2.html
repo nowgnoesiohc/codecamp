@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>z인덱스 쌓임 맥락 실습</title>
+    <style>
+      .CSS_종이놓는바닥 {
+        margin: 100px;
+        padding: 100px;
+
+        width: 1000px;
+        height: 1000px;
+        background-color: lightgray;
+
+        position: absolute;
+        /* 쌓임 맥락 기준으로 부모(containing block)는 상위태그들 중 쌓임 맥락에 포함된 태그임 */
+      }
+      .CSS_종이그룹 {
+        width: 500px;
+        height: 500px;
+        background-color: antiquewhite;
+      }
+      .CSS_빨간종이 {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+
+        z-index: 999;
+        /* 포지션 있어야 쌓임 맥락에 포함되어 z index 먹힘 */
+        position: absolute;
+      }
+      .CSS_노란종이 {
+        background-color: yellow;
+        width: 100px;
+        height: 100px;
+
+        position: absolute;
+        top: 25px;
+        left: 25px;
+
+        z-index: 1;
+      }
+      .CSS_파란종이 {
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+
+        position: absolute;
+        top: 50px;
+        left: 50px;
+
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_종이놓는바닥">
+      <div class="CSS_종이그룹">
+        <div class="CSS_빨간종이"></div>
+        <div class="CSS_노란종이"></div>
+        <div class="CSS_파란종이"></div>
+      </div>
+    </div>
+  </body>
+</html>

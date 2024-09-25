@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>그리드와 플렉스 실습</title>
+    <style>
+      .CSS_box_group {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        background-color: skyblue;
+        padding: 50px;
+      }
+      .CSS_box {
+        width: 250px;
+        height: 250px;
+      }
+      @media (max-width: 650px) {
+        .CSS_box_group {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .CSS_box {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_box_group">
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>강아지API 여러마리 실습</title>
+    <script>
+      const JS_강아지불러오는기능 = () => {
+        fetch("https://dog.ceo/api/breeds/image/random/3").then(
+          (받아온결과) => {
+            받아온결과.json().then((객체로변경한결과) => {
+              console.log("결과: ", 객체로변경한결과);
+
+              const 사진주소여러개 = 객체로변경한결과.message;
+              document.getElementById("HTML_강아지사진보여주는곳").innerHTML =
+                사진주소여러개.map(
+                  (el) => `
+                        <div>
+                            <img src="${el}" width="300px" />
+                        </div>
+                    `
+                );
+            });
+          }
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="JS_강아지불러오는기능()">강아지 불러오기</button>
+    <div id="HTML_강아지사진보여주는곳"></div>
+  </body>
+</html>

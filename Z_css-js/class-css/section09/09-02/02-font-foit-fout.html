@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>폰트 포잇-포웃 실습</title>
+    <style>
+      /* 1. 폰트만들기 */
+      @font-face {
+        font-family: 철수의폰트;
+        src: url("./00-myfont01.woff2");
+        /* foit (최초에 안보여주기 => 그럼에도 3초동안 못 받아오면, 기본폰트로 보여줌) */
+        font-display: block;
+      }
+      @font-face {
+        font-family: 영희의폰트;
+        src: url("./00-myfont02.woff2");
+        /* fout (최초에 기본폰트로 보여주기) */
+        font-display: swap;
+      }
+
+      .CSS_포잇 {
+        font-family: 철수의폰트;
+      }
+      .CSS_포웃 {
+        font-family: 영희의폰트;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_포잇">포잇폰트</div>
+    <div class="CSS_포웃">포웃폰트</div>
+  </body>
+</html>

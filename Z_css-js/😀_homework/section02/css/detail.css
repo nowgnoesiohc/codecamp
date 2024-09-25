@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+.real-entire {
+  width: 1920px;
+  min-height: 1805px;
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid gray;
+}
+.entire {
+  width: 1168px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px 0px;
+}
+.body {
+  display: flex;
+  gap: 24px 0px;
+  opacity: 0px;
+}
+.title-frame {
+  height: 60px;
+  gap: 10px 0px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+}
+.main-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 42px 0px;
+  /* background-color: beige; */
+}
+.content-area {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+#diary-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 12px 0px;
+  border-bottom: 2px solid #000000;
+}
+.content-area-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+}
+#content-emotion-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0px 8px;
+}
+#content-emotion-area img {
+  width: 32px;
+  height: 32px;
+}
+#content-emotion-area div {
+  color: #ea5757;
+  font-size: 20px;
+  font-weight: 600;
+}
+#content-date {
+  font-size: 14px;
+  font-weight: 400;
+  color: #919191;
+}
+.diary-content-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+#diary_content {
+  max-width: 1168px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+}
+.button-area {
+  height: 48px;
+  gap: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+.edit-button {
+  width: 51px;
+  height: 40px;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid #d4d3d3;
+  color: #1c1c1c;
+  font-size: 18px;
+  font-weight: 500;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>드롭다운 실습</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 1. 드롭다운 껍데기 만들기 */
+      .CSS_드롭다운제목 {
+        appearance: none;
+        width: 150px;
+        height: 40px;
+        padding: 10px;
+        border: 2px solid green;
+        border-radius: 10px;
+        margin-bottom: 10px;
+
+        --철수의CSS변수: "선택하세요.";
+      }
+      .CSS_드롭다운제목::after {
+        content: var(--철수의CSS변수);
+      }
+      .CSS_드롭다운제목:checked {
+        background-color: yellow;
+      }
+      .CSS_드롭다운제목:checked + .CSS_드롭다운메뉴 {
+        display: block;
+      }
+
+      /* 2. 드롭다운 알맹이 만들기 */
+      .CSS_드롭다운메뉴 {
+        display: none;
+        width: 150px;
+        border: 2px solid green;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .CSS_드롭다운메뉴 input {
+        display: none;
+      }
+      .CSS_드롭다운메뉴 label {
+        display: block;
+        height: 40px;
+        padding: 10px;
+      }
+      .CSS_드롭다운메뉴 label:hover {
+        background-color: yellow;
+      }
+    </style>
+    <script>
+      const JS_드롭다운선택기능 = (event) => {
+        document.getElementById(
+          "HTML_드롭다운제목"
+        ).style.cssText = `--철수의CSS변수: "${event.target.id}"`;
+        document.getElementById("HTML_드롭다운제목").click(); // 뭐라도 하나 선택하면 자동으로 다시 클릭해서 끄기
+      };
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" id="HTML_드롭다운제목" class="CSS_드롭다운제목" />
+    <ul id="HTML_드롭다운메뉴" class="CSS_드롭다운메뉴">
+      <li>
+        <input
+          type="radio"
+          name="HTML_선택아이템"
+          id="사과"
+          onclick="JS_드롭다운선택기능(event)"
+        /><label for="사과">사과</label>
+      </li>
+      <li>
+        <input
+          type="radio"
+          name="HTML_선택아이템"
+          id="바나나"
+          onclick="JS_드롭다운선택기능(event)"
+        /><label for="바나나">바나나</label>
+      </li>
+      <li>
+        <input
+          type="radio"
+          name="HTML_선택아이템"
+          id="딸기"
+          onclick="JS_드롭다운선택기능(event)"
+        /><label for="딸기">딸기</label>
+      </li>
+    </ul>
+  </body>
+</html>

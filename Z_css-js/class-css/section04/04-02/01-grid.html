@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>그리드 실습</title>
+    <style>
+      .CSS_box_group {
+        display: grid;
+        /* grid-template-columns: 300px 300px 300px; */
+        /* 비율로 나눌 수도 있다 */
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 400px 400px 400px;
+        background-color: skyblue;
+
+        /* 상자그룹 전체 껍데기 정렬 어떻게 할지(상하, 좌우) */
+        place-content: end center;
+
+        /* 알맹이들에 갭주기 */
+        column-gap: 100px;
+        row-gap: 50px;
+        /* 상자 알맹이 정렬 어떻게 할지(상하, 좌우) */
+        place-items: center center;
+
+        width: 1600px;
+        height: 1600px;
+      }
+      .CSS_box {
+        width: 250px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_box_group">
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+      <img class="CSS_box" src="../00-dog.jpg" />
+    </div>
+  </body>
+</html>

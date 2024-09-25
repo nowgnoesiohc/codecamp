@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 기본 사진(줌 불가) 누르면 원본(줌 가능) 나오게 -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 user-scalable=no"
+    />
+    <title>핀치줌 실습</title>
+    <script>
+      const JS_사진원본보기기능 = () => {
+        document.body.style = "background-color: black;";
+        document.getElementById("HTML_image").style = "width: 100%;";
+        document.getElementsByName("viewport")[0].content = `
+            width=device-width, initial-scale=1.0, user-scalable=yes
+            minimum-scale=1.0, maximum-scale=3.0
+        `;
+      };
+    </script>
+  </head>
+  <body>
+    <img
+      id="HTML_image"
+      src="../00-dog.jpg"
+      width="200px"
+      onclick="JS_사진원본보기기능()"
+    />
+  </body>
+</html>

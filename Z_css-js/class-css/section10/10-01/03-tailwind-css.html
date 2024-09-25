@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>테일윈드 CSS 실습</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              철수가좋아하는색깔: "blue",
+              영희가좋아하는색깔: "red",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <h1
+      class="text-3xl font-bold underline text-철수가좋아하는색깔 bg-영희가좋아하는색깔"
+    >
+      Hello World
+    </h1>
+    <h1 class="lg:content-auto">Hello World</h1>
+  </body>
+</html>

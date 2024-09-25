@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>일기보관함</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <div class="real-entire">
+      <div class="entire">
+        <div class="title-frame">민지의 다이어리</div>
+        <div class="main-frame">
+          <img class="top-image" src="./assets/header-image.png" />
+          <div class="main-content">
+            <div class="menu-area">
+              <div class="menu">일기보관함</div>
+              <div class="menu">일기보관함</div>
+            </div>
+            <div class="filter-area">
+              <select onchange="filterEmotion(event)">
+                <option>전체</option>
+                <option value="happy">행복해요</option>
+                <option value="sad">슬퍼요</option>
+                <option value="surprised">놀랐어요</option>
+                <option value="angry">화나요</option>
+                <option value="etc">기타</option>
+              </select>
+            </div>
+            <div class="content-area">
+              <div class="left-area">
+                <div id="list-content-area">
+                  <!-- NOTE : 개별 카드 -->
+                </div>
+              </div>
+              <div class="right-area">
+                <div class="right-create-area">
+                  <div class="create-title">📍 일기 쓰기</div>
+                  <div class="create-select-emotion">
+                    <div class="emotion-question">오늘 기분은 어땠나요?</div>
+                    <div class="emotion-radio">
+                      <div class="a-radio">
+                        <input
+                          checked
+                          id="happy"
+                          name="emotion"
+                          type="radio"
+                          oninput="inputStatus()"
+                        /><label for="happy">행복해요</label>
+                      </div>
+                      <div class="a-radio">
+                        <input
+                          id="sad"
+                          name="emotion"
+                          type="radio"
+                          oninput="inputStatus()"
+                        /><label for="sad">슬퍼요</label>
+                      </div>
+                      <div class="a-radio">
+                        <input
+                          id="surprised"
+                          name="emotion"
+                          type="radio"
+                          oninput="inputStatus()"
+                        /><label for="surprised">놀랐어요</label>
+                      </div>
+                      <div class="a-radio">
+                        <input
+                          id="angry"
+                          name="emotion"
+                          type="radio"
+                          oninput="inputStatus()"
+                        /><label for="angry">화나요</label>
+                      </div>
+                      <div class="a-radio">
+                        <input
+                          id="etc"
+                          name="emotion"
+                          type="radio"
+                          oninput="inputStatus()"
+                        /><label for="etc">기타</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="create-input-text">
+                    <div class="input-text-area">
+                      <div class="input-text-title">제목</div>
+                      <input
+                        id="input-box-title"
+                        type="text"
+                        oninput="inputStatus()"
+                        placeholder="제목을 입력해 주세요"
+                      />
+                    </div>
+                    <div class="input-text-area">
+                      <div>내용</div>
+                      <textarea
+                        id="input-box-content"
+                        type="text"
+                        oninput="inputStatus()"
+                        placeholder="내용을 입력해 주세요"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <button
+                    id="right-create-button"
+                    disabled="true"
+                    onclick="addDiary()"
+                  >
+                    등록하기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-frame">
+        <div class="footer-area">
+          <div>민지의 다이어리</div>
+          <div class="ceo-name"></div>
+          <div class="copyright"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>반복문 실습</title>
+    <script>
+      const 친구들 = ["철수", "영희", "훈이"];
+      const 우리반 = 친구들.map((el) => el + "어린이");
+      console.log(우리반);
+
+      const 우리반2 = 친구들.map(
+        (el, index) => el + "어린이: " + index + "번째"
+      );
+      console.log(우리반2);
+
+      const 학생증등록 = () => {
+        const 학생증1 = {
+          이름: "철수",
+          나이: 12,
+        };
+        const 학생증2 = {
+          이름: "영희",
+          나이: 13,
+        };
+        const 학생증목록담는통 = [학생증1, 학생증2];
+        localStorage("학생증목록", JSON.stringify(학생증목록담는통));
+      };
+      const 학생증그리기 = () => {
+        const 학생증목록문자열 = localStorage.getItem("학생증목록");
+        const 학생증목록 = JSON.parse(학생증목록문자열);
+
+        const 학생증으로만든HTML = 학생증목록.map(
+          (el, index) => `
+          <div>
+            <a href="./02-repeat-map-detail.html?number=${index}">
+              ${el.이름}는 ${el.나이}살 입니다
+            </a>
+          <div>
+        `
+        );
+        document.getElementById("HTML_학생증보여주는곳").innerHTML =
+          학생증으로만든HTML.join("");
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="학생증등록()">학생증 등록하기</button>
+    <button onclick="학생증그리기()">학생증 그리기</button>
+    <div id="학생증보여주는곳"></div>
+  </body>
+</html>

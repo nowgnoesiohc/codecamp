@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>디바이스 높이 감지 실습</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      .CSS_footer {
+        height: 100px;
+        background-color: lightgray;
+      }
+      .CSS_floatingButton {
+        position: fixed;
+        bottom: 10px;
+        left: 90%;
+      }
+    </style>
+    <script>
+      window.addEventListener("scroll", () => {
+        const 화면위에서푸터위까지길이 = document
+          .getElementById("HTML_footer")
+          .getBoundingClientRect().top; // 주소창 바로 아래서부터 푸터까지의 길이
+        console.log("화면위에서푸터위까지길이 : " + 화면위에서푸터위까지길이);
+
+        const 보이는화면길이 = window.innerHeight; // 메뉴, 주소창까지 포함
+        console.log("보이는화면길이 : " + 보이는화면길이);
+
+        if (보이는화면길이 >= 화면위에서푸터위까지길이) {
+          document.getElementById("HTML_floatingButton").style = `
+            position: relative;
+            bottom: 40px;
+            left: 90%;
+        `;
+        } else {
+          document.getElementById("HTML_floatingButton").style = `
+            position: fixed;
+            bottom: 10px;
+            left: 90%;
+        `;
+        }
+
+        // 하지만 디바이스 크기가 달라지면 작동하지 않으므로 디바이스 크기를 동적으로 감지할 필요가 있다.
+      });
+    </script>
+  </head>
+  <body>
+    <img src="../00-dog.jpg" width="100%" />
+    <button class="CSS_floatingButton" id="HTML_floatingButton">^</button>
+    <div id="HTML_footer" class="CSS_footer">푸터</div>
+  </body>
+</html>

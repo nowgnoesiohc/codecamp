@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>자바스크립트 로드 실습</title>
+    <script>
+      // const myName = prompt("이름을 입력하세요.");
+      // console.log(myName);
+      // document.getElementById("HTML_제목입력하는곳").innerText = myName;
+
+      window.onload = () => {
+        const myName = prompt("이름을 입력하세요.");
+        console.log(myName);
+        document.getElementById("HTML_제목입력하는곳").innerText = myName;
+      };
+
+      // 쌤 근데 원래는 이런거 안써도 잘 되지 않았나요?
+      const 프로필등록기능 = () => {
+        document.getElementById("HTML_프로필보여주는곳").innerText = "철수";
+      };
+      // 이처럼, 원래는 버튼을 클릭하면 실행됐기 때문에 onload 가 필요없었지만, 시작하자마자 HTML에 접근해야할 때는 필요하다.
+    </script>
+  </head>
+  <body>
+    <div>
+      <b id="HTML_제목입력하는곳"></b>의 다이어리에 오신 것을 환영합니다!
+    </div>
+    <div id="HTML_프로필보여주는곳"></div>
+    <input type="text" />
+    <button onclick="프로필등록기능()">등록하기</button>
+  </body>
+</html>
