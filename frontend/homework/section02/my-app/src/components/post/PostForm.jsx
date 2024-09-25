@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputForm from "./InputForm";
 import InputFormText from "./InputFormText";
 import InputFormAddr from "./InputFormAddr";
@@ -19,6 +19,8 @@ const PostForm = () => {
       ...prev,
       [event.target.id]: event.target.value,
     }));
+  };
+  useEffect(() => {
     inputValue.author &&
     inputValue.password &&
     inputValue.title &&
@@ -26,7 +28,7 @@ const PostForm = () => {
       ? setIsButtonDisabled(false)
       : setIsButtonDisabled(true);
     console.log(isButtonDisabled);
-  };
+  }, [inputValue]);
 
   return (
     <>
