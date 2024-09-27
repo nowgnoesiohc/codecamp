@@ -27,9 +27,8 @@ const PostForm = () => {
     inputValue.content
       ? setIsButtonDisabled(false)
       : setIsButtonDisabled(true);
-    console.log(isButtonDisabled);
   }, [inputValue]);
-
+  console.log(isButtonDisabled);
   return (
     <>
       <div className="input-area">

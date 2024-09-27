@@ -1,0 +1,21 @@
+.버튼스타일 {
+  background-color: yellow;
+
+  @apply text-철수가좋아하는색깔; /* tailwind, css 함께 쓰기*/
+}
+.네모상자스타일1 {
+  width: 100px;
+  height: 100px;
+  /* background-color: aqusa; */
+
+  @apply bg-영희가좋아하는색깔;
+}
+.네모상자스타일2 {
+  width: 100px;
+  height: 100px;
+  /* background-color: aqusa; */
+
+  @apply bg-영희가좋아하는색깔;
+
+  padding: 30px; /* boxsizing 적용되어 있음 */
+}
