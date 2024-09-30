@@ -8,6 +8,8 @@ export default function StaticRoutingPage() {
 
   const onClickSubmit = () => {
     // 1. 게시글 등록하기
+    // ...
+
     // 2. 등록된 페이지로 이동하기
     라우터.push("/section07/07-01-static-routing-moved");
   };
