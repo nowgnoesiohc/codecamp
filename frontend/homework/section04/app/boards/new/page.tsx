@@ -1,5 +1,6 @@
 import React from "react";
-import NewForm from "./components/NewForm";
+import NewForm from "./_components/NewForm";
+import "./styles.css";
 
 const BoardsNew = () => {
   return (
@@ -9,3 +10,5 @@ const BoardsNew = () => {
     </div>
   );
 };
+
+export default BoardsNew;
