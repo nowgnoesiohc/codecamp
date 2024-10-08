@@ -2,10 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 
-import NewFormText from "./NewFormText"; 
+import NewFormText from "./NewFormText";
 import NewFormPhoto from "./NewFormPhoto";
 import NewFormButton from "./NewFormButton";
+import { useMutation, gql } from "@apollo/client";
 
+const gqlSetting = gql`
+mutation createBoard(
+  
+
+)`;
 export default function NewForm() {
   const [inputValue, setInputValue] = useState<IInputValue>({
     author: "",
@@ -14,6 +20,7 @@ export default function NewForm() {
     content: "",
   });
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+
   const onChangeInputValue = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

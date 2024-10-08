@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { renderToNodeStream } from "react-dom/server";
 import { removeRequestMeta } from "next/dist/server/request-meta";
+import ApolloSetting from "@/commons/settings/06-02-apollo-setting";
 
 export const metadata: Metadata = {
   title: "철수의 홈페이지",
@@ -41,7 +42,7 @@ export default function RootLayout(props) {
     <html lang="en">
       <body className={`${철수의폰트.variable} ${글로벌폰트.variable}`}>
         <div>====== 여기 위는 레이아웃 ======</div>
-        {props.children}
+        <ApolloSetting>{props.children}</ApolloSetting>
         <div>====== 여기 아래는 레이아웃 ======</div>
       </body>
     </html>
