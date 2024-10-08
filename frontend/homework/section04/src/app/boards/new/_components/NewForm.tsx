@@ -5,13 +5,17 @@ import React, { useEffect, useState } from "react";
 import NewFormText from "./NewFormText";
 import NewFormPhoto from "./NewFormPhoto";
 import NewFormButton from "./NewFormButton";
-import { useMutation, gql } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 
-const gqlSetting = gql`
-mutation createBoard(
-  
-
-)`;
+const CREATE_BOARD = gql`
+  mutation createBoard($createBoardInput: CreateBoardInput!) {
+    createBoard(createBoardInput: $createBoardInput) {
+      writer
+      title
+      contents
+    }
+  }
+`;
 export default function NewForm() {
   const [inputValue, setInputValue] = useState<IInputValue>({
     author: "",
@@ -20,7 +24,7 @@ export default function NewForm() {
     content: "",
   });
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-
+  const [createBoard] = useMutation(CREATE_BOARD);
   const onChangeInputValue = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -39,6 +43,20 @@ export default function NewForm() {
       : setIsButtonDisabled(true);
   }, [inputValue]);
 
+  const onClickSubmit = async () => {
+    console.log("gkgk");
+    const result = await createBoard({
+      variables: {
+        createBoardInput: {
+          writer: inputValue.author,
+          title: inputValue.title,
+          password: inputValue.password,
+          contents: inputValue.content,
+        },
+      },
+    });
+  };
+
   return (
     <>
       <div className="input-area">
@@ -55,7 +73,11 @@ export default function NewForm() {
       </div>
       <div className="button-area">
         <NewFormButton value={"cancel"} />
-        <NewFormButton value={"register"} disabled={isButtonDisabled} />
+        <NewFormButton
+          value={"register"}
+          disabled={isButtonDisabled}
+          onClick={onClickSubmit}
+        />
       </div>
     </>
   );

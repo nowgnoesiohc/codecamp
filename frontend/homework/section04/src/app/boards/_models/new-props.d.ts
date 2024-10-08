@@ -1,6 +1,7 @@
 interface IButtonProps {
   value: "cancel" | "register";
   disabled?: boolean;
+  onClick?: () => void;
 }
 
 interface IInputFormTextProps {
