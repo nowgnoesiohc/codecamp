@@ -34,14 +34,22 @@ export default function NewForm() {
     }));
   };
 
-  useEffect(() => {
+  const a: boolean =
     inputValue.author &&
     inputValue.password &&
     inputValue.title &&
     inputValue.content
-      ? setIsButtonDisabled(false)
-      : setIsButtonDisabled(true);
-  }, [inputValue]);
+      ? false
+      : true;
+
+  // useEffect(() => {
+  //   inputValue.author &&
+  //   inputValue.password &&
+  //   inputValue.title &&
+  //   inputValue.content
+  //     ? setIsButtonDisabled(false)
+  //     : setIsButtonDisabled(true);
+  // }, [inputValue]);
 
   const onClickSubmit = async () => {
     console.log("gkgk");
@@ -75,7 +83,7 @@ export default function NewForm() {
         <NewFormButton value={"cancel"} />
         <NewFormButton
           value={"register"}
-          disabled={isButtonDisabled}
+          disabled={a}
           onClick={onClickSubmit}
         />
       </div>
