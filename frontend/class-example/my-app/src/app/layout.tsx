@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { renderToNodeStream } from "react-dom/server";
 import { removeRequestMeta } from "next/dist/server/request-meta";
-import ApolloSetting from "@/commons/settings/06-02-apollo-setting";
+import ApolloSetting from "@/src/commons/settings/06-02-apollo-setting";
 
 export const metadata: Metadata = {
   title: "철수의 홈페이지",
