@@ -1,0 +1,25 @@
+.all {
+  width: 1024px;
+  height: 768px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.main {
+  width: 764px;
+  height: 708px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.small_children {
+  height: 446px;
+  /* overflow-y: scroll; */
+}
+
+.big_children {
+  height: 708px;
+}

@@ -1,0 +1,29 @@
+.box {
+  width: 764px;
+  height: 388px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 10px 0px #0000000d;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bora_button {
+  width: 80px;
+  height: 30px;
+  padding: 5px 20px;
+  border-radius: 30px;
+  background: #6400ff;
+  color: white;
+}
+
+.grey_button {
+  width: 80px;
+  height: 30px;
+  padding: 5px 20px;
+  border-radius: 30px;
+  background: #999999;
+  color: white;
+}

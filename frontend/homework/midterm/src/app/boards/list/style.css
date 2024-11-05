@@ -1,0 +1,28 @@
+.list_main {
+  display: flex;
+  height: 448px;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: scroll;
+}
+.block {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  box-shadow: 0px 5px 10px 0px #0000000d;
+  border-radius: 10px;
+  padding: 0 32px;
+}
+
+.titie_text {
+  font-size: 14px;
+  font-weight: 700;
+}
+.date_text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #999999;
+}
